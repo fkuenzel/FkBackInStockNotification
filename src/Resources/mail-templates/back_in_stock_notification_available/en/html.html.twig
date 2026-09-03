@@ -1,0 +1,19 @@
+<div style="font-family: Arial, Helvetica, sans-serif; font-size: 14px; color: #303030;">
+    <p>Hello,</p>
+    <p>the following products are back in stock:</p>
+    <ul>
+        {% for item in items %}
+            <li>
+                <a href="{{ item.productUrl }}">{{ item.product.translated.name }}</a>{% if item.product.productNumber %} (SKU {{ item.product.productNumber }}){% endif %}
+                &ndash; <a href="{{ item.unsubscribeUrl }}">unsubscribe</a>
+            </li>
+        {% endfor %}
+    </ul>
+    <p><strong>Summary:</strong></p>
+    <ul>
+        <li>Email: {{ email }}</li>
+        <li>Sent at: {{ "now"|format_datetime('medium', 'short', locale='en-GB') }}</li>
+        <li>Number of available products: {{ count }}</li>
+    </ul>
+    <p>Shop: {{ shopName }}</p>
+</div>

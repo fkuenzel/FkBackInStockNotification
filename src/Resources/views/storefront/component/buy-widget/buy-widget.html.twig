@@ -1,0 +1,13 @@
+{% sw_extends '@Storefront/storefront/component/buy-widget/buy-widget.html.twig' %}
+
+{# Appends the back-in-stock notification component below the buy form. The
+   partial itself only renders when the product detail page marked the product
+   as eligible (sold out AND back-orders disabled), so it stays invisible on
+   buyable products and on CMS buy-box elements without the page extension. #}
+{% block buy_widget_buy_form %}
+    {{ parent() }}
+
+    {% block buy_widget_back_in_stock_notification %}
+        {% sw_include '@Storefront/storefront/component/back-in-stock-notification/widget.html.twig' %}
+    {% endblock %}
+{% endblock %}

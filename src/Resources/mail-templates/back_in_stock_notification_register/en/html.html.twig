@@ -1,0 +1,14 @@
+<div style="font-family: Arial, Helvetica, sans-serif; font-size: 14px; color: #303030;">
+    <p>Hello,</p>
+    <p>your notification has been activated. We will let you know as soon as the following product is back in stock:</p>
+    <p><strong>{{ product.translated.name }}</strong>{% if product.productNumber %} (SKU {{ product.productNumber }}){% endif %}</p>
+    <p>Shop: {{ shopName }}</p>
+    <p>Note: You will be notified as soon as the product is available (this can take up to 24 hours).</p>
+    <p><strong>Summary of your registration:</strong></p>
+    <ul>
+        <li>Email: {{ notification.email }}</li>
+        <li>Product: {{ product.translated.name }}</li>
+        <li>Registered at: {{ notification.createdAt|format_datetime('medium', 'short', locale='en-GB') }}</li>
+    </ul>
+    <p><a href="{{ unsubscribeUrl }}">Unsubscribe from this product's notification</a></p>
+</div>

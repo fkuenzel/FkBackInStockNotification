@@ -1,0 +1,19 @@
+<div style="font-family: Arial, Helvetica, sans-serif; font-size: 14px; color: #303030;">
+    <p>Hallo,</p>
+    <p>diese Artikel sind wieder verfügbar:</p>
+    <ul>
+        {% for item in items %}
+            <li>
+                <a href="{{ item.productUrl }}">{{ item.product.translated.name }}</a>{% if item.product.productNumber %} (Art.-Nr. {{ item.product.productNumber }}){% endif %}
+                &ndash; <a href="{{ item.unsubscribeUrl }}">abmelden</a>
+            </li>
+        {% endfor %}
+    </ul>
+    <p><strong>Zusammenfassung:</strong></p>
+    <ul>
+        <li>E-Mail: {{ email }}</li>
+        <li>Versand-Datum: {{ "now"|format_datetime('medium', 'short', locale='de-DE') }}</li>
+        <li>Anzahl verfügbarer Artikel: {{ count }}</li>
+    </ul>
+    <p>Shop: {{ shopName }}</p>
+</div>

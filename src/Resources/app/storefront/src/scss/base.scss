@@ -1,0 +1,49 @@
+// Back in Stock Notification - storefront styles
+// Kept intentionally light so the component inherits the active theme.
+
+.back-in-stock-notification {
+    margin-top: 1rem;
+
+    &-heading {
+        font-weight: $font-weight-bold;
+        margin-bottom: 0.5rem;
+    }
+
+    &-email-group {
+        margin-bottom: 0.75rem;
+    }
+
+    &-submit {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    &-hint {
+        display: block;
+        margin-top: 0.5rem;
+    }
+
+    &-info {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+
+        &-text {
+            flex: 1 1 auto;
+        }
+    }
+
+    &-feedback[hidden] {
+        display: none;
+    }
+}
+
+.account-back-in-stock-notifications {
+    &-actions {
+        display: flex;
+        justify-content: flex-end;
+        margin-bottom: 1rem;
+    }
+}

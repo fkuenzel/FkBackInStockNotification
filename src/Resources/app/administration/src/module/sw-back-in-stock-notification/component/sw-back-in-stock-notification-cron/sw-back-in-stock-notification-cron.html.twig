@@ -1,0 +1,48 @@
+{% block sw_back_in_stock_notification_cron %}
+<sw-card
+    class="sw-back-in-stock-notification-cron"
+    :title="$tc('sw-back-in-stock-notification.cron.title')"
+    position-identifier="sw-back-in-stock-notification-cron"
+    :is-loading="isLoading">
+
+    <template #toolbar>
+        <mt-button
+            v-if="acl.can('back_in_stock_notification.editor')"
+            variant="primary"
+            size="small"
+            :is-loading="isSending"
+            @click="onSendNow">
+            {{ $tc('sw-back-in-stock-notification.cron.sendNow') }}
+        </mt-button>
+    </template>
+
+    <div v-if="state" class="sw-back-in-stock-notification-cron__body">
+        <mt-banner
+            :variant="healthy ? 'positive' : 'critical'"
+            :title="healthy ? $tc('sw-back-in-stock-notification.cron.healthy') : $tc('sw-back-in-stock-notification.cron.unhealthy')">
+            <template v-if="!healthy">
+                {{ $tc('sw-back-in-stock-notification.cron.failures', state.consecutiveFailures, { count: state.consecutiveFailures }) }}
+                <span v-if="state.lastErrorMessage"> — {{ state.lastErrorMessage }}</span>
+            </template>
+        </mt-banner>
+
+        <dl class="sw-back-in-stock-notification-cron__facts">
+            <div>
+                <dt>{{ $tc('sw-back-in-stock-notification.cron.lastRun') }}</dt>
+                <dd>
+                    <template v-if="state.lastRunAt">{{ state.lastRunAt | date }}</template>
+                    <template v-else>{{ $tc('sw-back-in-stock-notification.cron.never') }}</template>
+                </dd>
+            </div>
+            <div>
+                <dt>{{ $tc('sw-back-in-stock-notification.cron.consecutiveFailures') }}</dt>
+                <dd>{{ state.consecutiveFailures }}</dd>
+            </div>
+            <div v-if="state.lastErrorAt">
+                <dt>{{ $tc('sw-back-in-stock-notification.cron.lastError') }}</dt>
+                <dd>{{ state.lastErrorAt | date }}</dd>
+            </div>
+        </dl>
+    </div>
+</sw-card>
+{% endblock %}

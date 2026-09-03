@@ -1,0 +1,15 @@
+Hello,
+
+your notification has been activated. We will let you know as soon as the following product is back in stock:
+
+{{ product.translated.name }}{% if product.productNumber %} (SKU {{ product.productNumber }}){% endif %}
+Shop: {{ shopName }}
+
+Note: You will be notified as soon as the product is available (this can take up to 24 hours).
+
+Summary of your registration:
+- Email: {{ notification.email }}
+- Product: {{ product.translated.name }}
+- Registered at: {{ notification.createdAt|format_datetime('medium', 'short', locale='en-GB') }}
+
+Unsubscribe: {{ unsubscribeUrl }}

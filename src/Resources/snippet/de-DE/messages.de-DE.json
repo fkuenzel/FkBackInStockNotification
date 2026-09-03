@@ -1,0 +1,50 @@
+{
+    "backInStockNotification": {
+        "register": {
+            "success": "Deine Benachrichtigung ist aktiv. Eine Bestätigung haben wir dir per E-Mail geschickt.",
+            "invalidEmail": "Bitte gib eine gültige E-Mail-Adresse ein.",
+            "rateLimited": "Zu viele Anfragen. Bitte versuche es später erneut.",
+            "notEligible": "Für diesen Artikel ist keine Benachrichtigung möglich.",
+            "error": "Etwas ist schiefgelaufen. Bitte versuche es später erneut."
+        },
+        "unsubscribe": {
+            "confirmTitle": "Benachrichtigung abmelden",
+            "confirmText": "Möchtest du dich von der Benachrichtigung für diesen Artikel abmelden?",
+            "confirmButton": "Ja, abmelden",
+            "successTitle": "Du wurdest abgemeldet",
+            "successText": "Du erhältst für diesen Artikel keine Benachrichtigung mehr.",
+            "errorTitle": "Link nicht mehr gültig",
+            "errorText": "Dieser Abmelde-Link ist ungültig oder wurde bereits verwendet.",
+            "backHome": "Zurück zum Shop"
+        },
+        "widget": {
+            "heading": "Derzeit ausverkauft",
+            "emailLabel": "E-Mail-Adresse",
+            "emailPlaceholder": "deine@email.de",
+            "submit": "Benachrichtige mich, wenn verfügbar",
+            "privacyHint": "Wir verwenden deine E-Mail-Adresse ausschließlich, um dich über die Verfügbarkeit dieses Artikels zu benachrichtigen.",
+            "registeredInfo": "Du erhältst eine Benachrichtigung, sobald dieser Artikel wieder verfügbar ist.",
+            "unsubscribe": "Benachrichtigung abmelden",
+            "unsubscribeConfirm": "Möchtest du diese Benachrichtigung wirklich abmelden?",
+            "unsubscribed": "Deine Benachrichtigung wurde abgemeldet."
+        },
+        "account": {
+            "title": "Benachrichtigungen bei Wiederverfügbarkeit",
+            "menuLabel": "Wiederverfügbarkeit",
+            "intro": "Das sind die Artikel, über deren Wiederverfügbarkeit du benachrichtigt werden möchtest.",
+            "deleteAll": "Alle löschen",
+            "deleteAllConfirm": "Möchtest du wirklich alle Benachrichtigungen löschen?",
+            "columnProduct": "Produkt",
+            "columnRegisteredAt": "Registriert am",
+            "columnActions": "Aktionen",
+            "productRemoved": "Produkt nicht mehr verfügbar",
+            "delete": "Löschen",
+            "deleteAria": "Benachrichtigung löschen",
+            "deleteConfirm": "Möchtest du diese Benachrichtigung wirklich löschen?",
+            "empty": "Du hast keine aktiven Benachrichtigungen.",
+            "deleteSuccess": "Die Benachrichtigung wurde gelöscht.",
+            "deleteError": "Die Benachrichtigung konnte nicht gelöscht werden.",
+            "deleteAllSuccess": "%count% Benachrichtigungen wurden gelöscht."
+        }
+    }
+}

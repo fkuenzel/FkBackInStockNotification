@@ -1,0 +1,14 @@
+<div style="font-family: Arial, Helvetica, sans-serif; font-size: 14px; color: #303030;">
+    <p>Hallo,</p>
+    <p>deine Benachrichtigung wurde aktiviert. Wir informieren dich, sobald der folgende Artikel wieder verfügbar ist:</p>
+    <p><strong>{{ product.translated.name }}</strong>{% if product.productNumber %} (Art.-Nr. {{ product.productNumber }}){% endif %}</p>
+    <p>Shop: {{ shopName }}</p>
+    <p>Hinweis: Die Benachrichtigung erfolgt, sobald der Artikel verfügbar ist (das kann bis zu 24 Stunden dauern).</p>
+    <p><strong>Zusammenfassung deiner Anmeldung:</strong></p>
+    <ul>
+        <li>E-Mail: {{ notification.email }}</li>
+        <li>Artikel: {{ product.translated.name }}</li>
+        <li>Registriert am: {{ notification.createdAt|format_datetime('medium', 'short', locale='de-DE') }}</li>
+    </ul>
+    <p><a href="{{ unsubscribeUrl }}">Benachrichtigung für diesen Artikel abmelden</a></p>
+</div>

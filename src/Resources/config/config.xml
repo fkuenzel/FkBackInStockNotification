@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/shopware/platform/trunk/src/Core/System/SystemConfig/Schema/config.xsd">
+
+    <card>
+        <title>General</title>
+        <title lang="de-DE">Allgemein</title>
+
+        <input-field type="bool">
+            <name>active</name>
+            <label>Enable back in stock notifications</label>
+            <label lang="de-DE">Benachrichtigungen aktiviert</label>
+            <defaultValue>true</defaultValue>
+        </input-field>
+
+        <input-field type="bool">
+            <name>allowGuests</name>
+            <label>Allow guest notifications (without login)</label>
+            <label lang="de-DE">Gäste-Benachrichtigungen erlauben (ohne Login)</label>
+            <defaultValue>true</defaultValue>
+        </input-field>
+
+        <input-field type="text">
+            <name>sendTime</name>
+            <label>Daily send time (shop timezone, format HH:mm)</label>
+            <label lang="de-DE">Tägliche Versand-Uhrzeit (Shop-Zeitzone, Format HH:mm)</label>
+            <defaultValue>18:00</defaultValue>
+            <helpText>Consolidated notifications are sent once per day at this time.</helpText>
+            <helpText lang="de-DE">Der konsolidierte Versand erfolgt einmal täglich zu dieser Uhrzeit.</helpText>
+        </input-field>
+    </card>
+
+    <card>
+        <title>Retention and unsubscribe tokens</title>
+        <title lang="de-DE">Aufbewahrung und Abmelde-Tokens</title>
+
+        <input-field type="int">
+            <name>notificationValidityDays</name>
+            <label>Notification validity (days)</label>
+            <label lang="de-DE">Benachrichtigungs-Gültigkeit (Tage)</label>
+            <defaultValue>180</defaultValue>
+            <min>1</min>
+            <max>730</max>
+            <step>1</step>
+            <helpText>Notifications are deleted automatically after this many days if the product is still unavailable.</helpText>
+            <helpText lang="de-DE">Benachrichtigungen werden nach dieser Anzahl Tage automatisch gelöscht, wenn der Artikel noch nicht verfügbar ist.</helpText>
+        </input-field>
+
+        <input-field type="int">
+            <name>tokenValidityDays</name>
+            <label>Unsubscribe token validity (days)</label>
+            <label lang="de-DE">Gültigkeit der Abmelde-Links (Tage)</label>
+            <defaultValue>180</defaultValue>
+            <min>1</min>
+            <max>730</max>
+            <step>1</step>
+            <helpText>Unsubscribe links become invalid after this many days.</helpText>
+            <helpText lang="de-DE">Abmelde-Links werden nach dieser Anzahl Tage ungültig.</helpText>
+        </input-field>
+
+        <input-field type="int">
+            <name>auditLogRetentionDays</name>
+            <label>Audit log retention (days)</label>
+            <label lang="de-DE">Aufbewahrung Audit-Log (Tage)</label>
+            <defaultValue>90</defaultValue>
+            <min>1</min>
+            <step>1</step>
+            <helpText>Database audit log entries (back_in_stock_notification_log) older than this are removed for performance.</helpText>
+            <helpText lang="de-DE">Audit-Log-Einträge in der Datenbank (back_in_stock_notification_log) älter als dieser Wert werden aus Performance-Gründen entfernt.</helpText>
+        </input-field>
+    </card>
+
+    <card>
+        <title>Rate limiting</title>
+        <title lang="de-DE">Rate-Limiting</title>
+
+        <input-field type="int">
+            <name>rateLimitPerIpHour</name>
+            <label>Max registrations per IP per hour</label>
+            <label lang="de-DE">Max. Registrierungen pro IP/Stunde</label>
+            <defaultValue>100</defaultValue>
+            <min>1</min>
+            <step>1</step>
+        </input-field>
+
+        <input-field type="int">
+            <name>rateLimitPerCustomerDay</name>
+            <label>Max notifications per customer/IP per day</label>
+            <label lang="de-DE">Max. Benachrichtigungen pro Kunde/IP/Tag</label>
+            <defaultValue>5</defaultValue>
+            <min>1</min>
+            <step>1</step>
+        </input-field>
+    </card>
+
+    <card>
+        <title>Logging</title>
+        <title lang="de-DE">Logging</title>
+
+        <input-field type="single-select">
+            <name>logLevel</name>
+            <label>Log level</label>
+            <label lang="de-DE">Log-Level</label>
+            <defaultValue>warning</defaultValue>
+            <options>
+                <option>
+                    <id>debug</id>
+                    <name>Full log (debug, info, warning, error)</name>
+                    <name lang="de-DE">Full Log (Debug, Info, Warning, Error)</name>
+                </option>
+                <option>
+                    <id>warning</id>
+                    <name>Dev log (warning, error)</name>
+                    <name lang="de-DE">Dev Log (Warning, Error)</name>
+                </option>
+                <option>
+                    <id>error</id>
+                    <name>Error only</name>
+                    <name lang="de-DE">Nur Error</name>
+                </option>
+            </options>
+            <helpText>Higher verbosity produces more logs and uses more storage.</helpText>
+            <helpText lang="de-DE">Höheres Log-Level erzeugt mehr Logs und benötigt mehr Speicher.</helpText>
+        </input-field>
+
+        <input-field type="int">
+            <name>pluginLogRetentionDays</name>
+            <label>Plugin log file retention (days)</label>
+            <label lang="de-DE">Aufbewahrung Plugin-Logdateien (Tage)</label>
+            <defaultValue>30</defaultValue>
+            <min>1</min>
+            <step>1</step>
+            <helpText>Plugin log files (var/log/back-in-stock-notification) older than this are deleted.</helpText>
+            <helpText lang="de-DE">Plugin-Logdateien (var/log/back-in-stock-notification) älter als dieser Wert werden gelöscht.</helpText>
+        </input-field>
+    </card>
+
+    <card>
+        <title>Email templates</title>
+        <title lang="de-DE">E-Mail-Templates</title>
+
+        <input-field type="bool">
+            <name>allowTemplateCustomization</name>
+            <label>Allow email template customization in the admin template editor</label>
+            <label lang="de-DE">Anpassung der E-Mail-Templates im Admin-Template-Editor erlauben</label>
+            <defaultValue>false</defaultValue>
+        </input-field>
+    </card>
+
+</config>

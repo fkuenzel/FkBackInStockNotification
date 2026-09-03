@@ -1,0 +1,15 @@
+Hallo,
+
+diese Artikel sind wieder verfügbar:
+{% for item in items %}
+- {{ item.product.translated.name }}{% if item.product.productNumber %} (Art.-Nr. {{ item.product.productNumber }}){% endif %}
+  Zum Artikel: {{ item.productUrl }}
+  Abmelden: {{ item.unsubscribeUrl }}
+{% endfor %}
+
+Zusammenfassung:
+- E-Mail: {{ email }}
+- Versand-Datum: {{ "now"|format_datetime('medium', 'short', locale='de-DE') }}
+- Anzahl verfügbarer Artikel: {{ count }}
+
+Shop: {{ shopName }}

@@ -1,0 +1,15 @@
+Hallo,
+
+deine Benachrichtigung wurde aktiviert. Wir informieren dich, sobald der folgende Artikel wieder verfügbar ist:
+
+{{ product.translated.name }}{% if product.productNumber %} (Art.-Nr. {{ product.productNumber }}){% endif %}
+Shop: {{ shopName }}
+
+Hinweis: Die Benachrichtigung erfolgt, sobald der Artikel verfügbar ist (das kann bis zu 24 Stunden dauern).
+
+Zusammenfassung deiner Anmeldung:
+- E-Mail: {{ notification.email }}
+- Artikel: {{ product.translated.name }}
+- Registriert am: {{ notification.createdAt|format_datetime('medium', 'short', locale='de-DE') }}
+
+Abmelden: {{ unsubscribeUrl }}

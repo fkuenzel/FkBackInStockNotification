@@ -1,0 +1,15 @@
+Hello,
+
+the following products are back in stock:
+{% for item in items %}
+- {{ item.product.translated.name }}{% if item.product.productNumber %} (SKU {{ item.product.productNumber }}){% endif %}
+  View product: {{ item.productUrl }}
+  Unsubscribe: {{ item.unsubscribeUrl }}
+{% endfor %}
+
+Summary:
+- Email: {{ email }}
+- Sent at: {{ "now"|format_datetime('medium', 'short', locale='en-GB') }}
+- Number of available products: {{ count }}
+
+Shop: {{ shopName }}

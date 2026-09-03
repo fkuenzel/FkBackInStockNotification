@@ -1,0 +1,113 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <defaults autowire="true" autoconfigure="true" public="false"/>
+
+        <!-- DAL entity definitions. Shopware auto-creates the matching
+             "<entity_name>.repository" services from these tags. -->
+        <service id="fKuenzel\BackInStockNotification\Entity\BackInStockNotification\BackInStockNotificationDefinition">
+            <tag name="shopware.entity.definition"/>
+        </service>
+
+        <service id="fKuenzel\BackInStockNotification\Entity\Log\BackInStockNotificationLogDefinition">
+            <tag name="shopware.entity.definition"/>
+        </service>
+
+        <service id="fKuenzel\BackInStockNotification\Entity\CronState\BackInStockNotificationCronStateDefinition">
+            <tag name="shopware.entity.definition"/>
+        </service>
+
+        <!--
+            Services, EventListeners, Subscribers, ScheduledTasks and Controllers
+            follow in their respective phases.
+        -->
+
+        <service id="fKuenzel\BackInStockNotification\Service\RateLimitService">
+            <argument type="service" id="cache.object"/>
+        </service>
+
+        <service id="fKuenzel\BackInStockNotification\Service\BackInStockNotificationService">
+            <argument type="service" id="back_in_stock_notification.repository"/>
+            <argument type="service" id="back_in_stock_notification_log.repository"/>
+            <argument type="service" id="product.repository"/>
+            <argument type="service" id="Shopware\Core\System\SystemConfig\SystemConfigService"/>
+            <argument type="service" id="fKuenzel\BackInStockNotification\Service\RateLimitService"/>
+            <argument type="service" id="event_dispatcher"/>
+            <argument type="service" id="back_in_stock_notification.logger"/>
+        </service>
+
+        <service id="fKuenzel\BackInStockNotification\Service\NotificationMailService">
+            <argument type="service" id="Shopware\Core\Content\Mail\Service\MailService"/>
+            <argument type="service" id="mail_template.repository"/>
+            <argument type="service" id="sales_channel_domain.repository"/>
+            <argument type="service" id="Shopware\Core\System\SystemConfig\SystemConfigService"/>
+            <argument type="service" id="back_in_stock_notification.logger"/>
+        </service>
+
+        <service id="fKuenzel\BackInStockNotification\Subscriber\RegistrationMailSubscriber">
+            <argument type="service" id="fKuenzel\BackInStockNotification\Service\NotificationMailService"/>
+            <argument type="service" id="back_in_stock_notification.logger"/>
+        </service>
+
+        <service id="fKuenzel\BackInStockNotification\EventListener\StockUpdateListener">
+            <argument type="service" id="fKuenzel\BackInStockNotification\Service\BackInStockNotificationService"/>
+        </service>
+
+        <service id="fKuenzel\BackInStockNotification\Service\CronStateService">
+            <argument type="service" id="back_in_stock_notification_cron_state.repository"/>
+        </service>
+
+        <service id="fKuenzel\BackInStockNotification\ScheduledTask\SendNotificationsTask">
+            <tag name="shopware.scheduled.task"/>
+        </service>
+
+        <service id="fKuenzel\BackInStockNotification\ScheduledTask\CleanupTask">
+            <tag name="shopware.scheduled.task"/>
+        </service>
+
+        <service id="fKuenzel\BackInStockNotification\ScheduledTask\SendNotificationsTaskHandler">
+            <argument type="service" id="scheduled_task.repository"/>
+            <argument type="service" id="back_in_stock_notification.logger"/>
+            <argument type="service" id="fKuenzel\BackInStockNotification\Service\BackInStockNotificationService"/>
+            <argument type="service" id="fKuenzel\BackInStockNotification\Service\NotificationMailService"/>
+            <argument type="service" id="fKuenzel\BackInStockNotification\Service\CronStateService"/>
+            <argument type="service" id="Shopware\Core\System\SystemConfig\SystemConfigService"/>
+        </service>
+
+        <service id="fKuenzel\BackInStockNotification\ScheduledTask\CleanupTaskHandler">
+            <argument type="service" id="scheduled_task.repository"/>
+            <argument type="service" id="back_in_stock_notification.logger"/>
+            <argument type="service" id="fKuenzel\BackInStockNotification\Service\BackInStockNotificationService"/>
+            <argument type="service" id="Shopware\Core\System\SystemConfig\SystemConfigService"/>
+        </service>
+
+        <service id="fKuenzel\BackInStockNotification\Service\Log\PluginLoggerFactory">
+            <argument type="service" id="Shopware\Core\System\SystemConfig\SystemConfigService"/>
+            <argument>%kernel.logs_dir%</argument>
+        </service>
+
+        <service id="back_in_stock_notification.logger" class="Psr\Log\LoggerInterface">
+            <factory service="fKuenzel\BackInStockNotification\Service\Log\PluginLoggerFactory" method="create"/>
+        </service>
+
+
+        <!-- ============================================================
+             Phase B: Administration API actions
+             ============================================================ -->
+
+        <service id="fKuenzel\BackInStockNotification\Controller\Admin\NotificationAdminController" public="true">
+            <argument type="service" id="back_in_stock_notification.repository"/>
+            <argument type="service" id="product.repository"/>
+            <argument type="service" id="fKuenzel\BackInStockNotification\Service\CronStateService"/>
+            <argument type="service" id="fKuenzel\BackInStockNotification\ScheduledTask\SendNotificationsTaskHandler"/>
+            <argument type="service" id="fKuenzel\BackInStockNotification\Service\BackInStockNotificationService"/>
+            <argument>%kernel.logs_dir%</argument>
+            <argument type="service" id="back_in_stock_notification.logger"/>
+        </service>
+
+    </services>
+</container>

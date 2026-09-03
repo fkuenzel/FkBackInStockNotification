@@ -1,0 +1,96 @@
+{% set bisn = page.extensions.backInStockNotification ?? null %}
+
+{% if bisn and bisn.get('eligible') %}
+    {% block component_back_in_stock_notification %}
+        <div class="back-in-stock-notification"
+             data-back-in-stock-notification="true"
+             data-back-in-stock-notification-options="{{ {
+                 registerUrl: path('frontend.back-in-stock-notification.register'),
+                 removeUrl: path('frontend.back-in-stock-notification.remove')
+             }|json_encode }}">
+
+            {% block component_back_in_stock_notification_alert %}
+                <div class="back-in-stock-notification-feedback alert"
+                     role="alert"
+                     aria-live="polite"
+                     hidden></div>
+            {% endblock %}
+
+            {% if bisn.get('alreadyRegistered') %}
+                {% block component_back_in_stock_notification_info %}
+                    <div class="back-in-stock-notification-info alert alert-success" role="status">
+                        {% block component_back_in_stock_notification_info_icon %}
+                            {% sw_icon 'checkmark-circle' style { size: 'sm' } %}
+                        {% endblock %}
+
+                        {% block component_back_in_stock_notification_info_text %}
+                            <span class="back-in-stock-notification-info-text">
+                                {{ 'backInStockNotification.widget.registeredInfo'|trans|sw_sanitize }}
+                            </span>
+                        {% endblock %}
+
+                        {% block component_back_in_stock_notification_info_form %}
+                            <form class="back-in-stock-notification-remove-form js-bisn-remove-form"
+                                  action="{{ path('frontend.back-in-stock-notification.remove') }}"
+                                  method="post"
+                                  data-bisn-confirm="{{ 'backInStockNotification.widget.unsubscribeConfirm'|trans|striptags }}">
+                                <input type="hidden" name="productId" value="{{ bisn.get('productId') }}">
+                                <input type="hidden" name="variantId" value="{{ bisn.get('variantId') }}">
+                                <button type="submit" class="btn btn-outline-secondary btn-sm back-in-stock-notification-remove-btn">
+                                    {{ 'backInStockNotification.widget.unsubscribe'|trans|sw_sanitize }}
+                                </button>
+                            </form>
+                        {% endblock %}
+                    </div>
+                {% endblock %}
+            {% else %}
+                {% block component_back_in_stock_notification_form %}
+                    <form class="back-in-stock-notification-form js-bisn-register-form"
+                          action="{{ path('frontend.back-in-stock-notification.register') }}"
+                          method="post">
+                        <input type="hidden" name="productId" value="{{ bisn.get('productId') }}">
+                        <input type="hidden" name="variantId" value="{{ bisn.get('variantId') }}">
+
+                        {% block component_back_in_stock_notification_form_heading %}
+                            <p class="back-in-stock-notification-heading">
+                                {{ 'backInStockNotification.widget.heading'|trans|sw_sanitize }}
+                            </p>
+                        {% endblock %}
+
+                        {% block component_back_in_stock_notification_form_email %}
+                            <div class="back-in-stock-notification-email-group">
+                                <label class="form-label" for="backInStockNotificationEmail">
+                                    {{ 'backInStockNotification.widget.emailLabel'|trans|sw_sanitize }}
+                                </label>
+                                <input type="email"
+                                       class="form-control back-in-stock-notification-email"
+                                       id="backInStockNotificationEmail"
+                                       name="email"
+                                       value="{{ bisn.get('customerEmail') }}"
+                                       required="required"
+                                       autocomplete="email"
+                                       aria-describedby="backInStockNotificationHint"
+                                       placeholder="{{ 'backInStockNotification.widget.emailPlaceholder'|trans|striptags }}">
+                            </div>
+                        {% endblock %}
+
+                        {% block component_back_in_stock_notification_form_submit %}
+                            <button type="submit" class="btn btn-primary back-in-stock-notification-submit">
+                                <span class="back-in-stock-notification-submit-text">
+                                    {{ 'backInStockNotification.widget.submit'|trans|sw_sanitize }}
+                                </span>
+                                <span class="back-in-stock-notification-spinner spinner-border spinner-border-sm" role="status" aria-hidden="true" hidden></span>
+                            </button>
+                        {% endblock %}
+
+                        {% block component_back_in_stock_notification_form_hint %}
+                            <small id="backInStockNotificationHint" class="back-in-stock-notification-hint text-muted">
+                                {{ 'backInStockNotification.widget.privacyHint'|trans|sw_sanitize }}
+                            </small>
+                        {% endblock %}
+                    </form>
+                {% endblock %}
+            {% endif %}
+        </div>
+    {% endblock %}
+{% endif %}

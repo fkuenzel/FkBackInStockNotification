@@ -1,0 +1,18 @@
+.sw-back-in-stock-notification-cron {
+    &__facts {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 16px;
+        margin: 16px 0 0;
+
+        dt {
+            color: var(--color-gray-500, #b3bfcc);
+            font-size: 13px;
+        }
+
+        dd {
+            margin: 0;
+            font-weight: bold;
+        }
+    }
+}

@@ -1,0 +1,9 @@
+parameters:
+    level: 8
+    phpVersion: 80200
+    paths:
+        - src
+    bootstrapFiles:
+        - vendor/autoload.php
+    excludePaths:
+        - src/Resources/*

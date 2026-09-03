@@ -1,0 +1,50 @@
+{
+    "backInStockNotification": {
+        "register": {
+            "success": "Your notification is active. We have sent you a confirmation email.",
+            "invalidEmail": "Please enter a valid email address.",
+            "rateLimited": "Too many requests. Please try again later.",
+            "notEligible": "This product is not eligible for a notification.",
+            "error": "Something went wrong. Please try again later."
+        },
+        "unsubscribe": {
+            "confirmTitle": "Unsubscribe from notification",
+            "confirmText": "Do you want to unsubscribe from the notification for this product?",
+            "confirmButton": "Yes, unsubscribe",
+            "successTitle": "You have been unsubscribed",
+            "successText": "You will no longer receive a notification for this product.",
+            "errorTitle": "Link no longer valid",
+            "errorText": "This unsubscribe link is invalid or has already been used.",
+            "backHome": "Back to the shop"
+        },
+        "widget": {
+            "heading": "Currently sold out",
+            "emailLabel": "Email address",
+            "emailPlaceholder": "your@email.com",
+            "submit": "Notify me when available",
+            "privacyHint": "We only use your email address to notify you about this product's availability.",
+            "registeredInfo": "You will be notified as soon as this item is back in stock.",
+            "unsubscribe": "Cancel notification",
+            "unsubscribeConfirm": "Do you really want to cancel this notification?",
+            "unsubscribed": "Your notification has been cancelled."
+        },
+        "account": {
+            "title": "Back in stock notifications",
+            "menuLabel": "Back in stock",
+            "intro": "These are the products you want to be notified about when they are available again.",
+            "deleteAll": "Delete all",
+            "deleteAllConfirm": "Do you really want to delete all notifications?",
+            "columnProduct": "Product",
+            "columnRegisteredAt": "Registered at",
+            "columnActions": "Actions",
+            "productRemoved": "Product no longer available",
+            "delete": "Delete",
+            "deleteAria": "Delete notification",
+            "deleteConfirm": "Do you really want to delete this notification?",
+            "empty": "You have no active notifications.",
+            "deleteSuccess": "The notification has been deleted.",
+            "deleteError": "The notification could not be deleted.",
+            "deleteAllSuccess": "%count% notifications have been deleted."
+        }
+    }
+}

@@ -1,0 +1,61 @@
+{
+    "name": "fkuenzel/back-in-stock-notification-plugin",
+    "description": "Back in stock notification plugin for Shopware 6 - notifies customers when sold-out products or variants become available again.",
+    "version": "1.0.0",
+    "type": "shopware-platform-plugin",
+    "license": "GPL-2.0-only",
+    "keywords": [
+        "shopware",
+        "shopware6",
+        "back-in-stock",
+        "notification",
+        "availability"
+    ],
+    "authors": [
+        {
+            "name": "Fabian Künzel",
+            "homepage": "https://github.com/fkuenzel"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/fkuenzel/FkBackInStockNotification/issues",
+        "source": "https://github.com/fkuenzel/FkBackInStockNotification"
+    },
+    "require": {
+        "php": "^8.2",
+        "shopware/core": "6.7.*"
+    },
+    "require-dev": {
+        "shopware/administration": "6.7.*",
+        "shopware/storefront": "6.7.*",
+        "phpstan/phpstan": "^2.0",
+        "phpunit/phpunit": "^11.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "fKuenzel\\BackInStockNotification\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "fKuenzel\\BackInStockNotification\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "shopware-plugin-class": "fKuenzel\\BackInStockNotification\\BackInStockNotification",
+        "label": {
+            "en-GB": "Back in Stock Notification",
+            "de-DE": "Benachrichtigung bei Wiederverfügbarkeit"
+        },
+        "description": {
+            "en-GB": "Notify customers when sold-out products or variants are back in stock.",
+            "de-DE": "Benachrichtigt Kunden, wenn ausverkaufte Artikel oder Varianten wieder verfügbar sind."
+        },
+        "manufacturerLink": {
+            "en-GB": "https://github.com/fkuenzel"
+        },
+        "supportLink": {
+            "en-GB": "https://github.com/fkuenzel/FkBackInStockNotification"
+        }
+    }
+}

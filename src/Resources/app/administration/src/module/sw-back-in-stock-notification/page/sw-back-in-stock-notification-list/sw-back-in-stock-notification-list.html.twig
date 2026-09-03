@@ -1,0 +1,202 @@
+{% block sw_back_in_stock_notification_list %}
+<sw-page class="sw-back-in-stock-notification-list">
+    {% block sw_back_in_stock_notification_list_smart_bar_header %}
+    <template #smart-bar-header>
+        <h2>{{ $tc('sw-back-in-stock-notification.list.title') }}</h2>
+    </template>
+    {% endblock %}
+
+    {% block sw_back_in_stock_notification_list_smart_bar_actions %}
+    <template #smart-bar-actions>
+        <mt-button variant="secondary" :is-loading="isLoading" @click="onRefresh">
+            {{ $tc('sw-back-in-stock-notification.list.refresh') }}
+        </mt-button>
+    </template>
+    {% endblock %}
+
+    {% block sw_back_in_stock_notification_list_content %}
+    <template #content>
+        <sw-card-view>
+            {% block sw_back_in_stock_notification_list_stats %}
+            <sw-back-in-stock-notification-stats />
+            {% endblock %}
+
+            {% block sw_back_in_stock_notification_list_cron %}
+            <sw-back-in-stock-notification-cron />
+            {% endblock %}
+
+            {% block sw_back_in_stock_notification_list_grid_card %}
+            <sw-card
+                :title="$tc('sw-back-in-stock-notification.list.gridTitle')"
+                position-identifier="sw-back-in-stock-notification-list-grid"
+                :is-loading="isLoading">
+
+                {% block sw_back_in_stock_notification_list_toolbar %}
+                <div class="sw-back-in-stock-notification-list__toolbar">
+                    <sw-simple-search-field
+                        v-model:value="term"
+                        size="small"
+                        variant="form"
+                        :placeholder="$tc('sw-back-in-stock-notification.list.searchPlaceholder')"
+                        @search-term-change="onSearch" />
+
+                    <div class="sw-back-in-stock-notification-list__toolbar-actions">
+                        <sw-switch-field
+                            v-model:value="onlyPending"
+                            :label="$tc('sw-back-in-stock-notification.list.onlyPending')"
+                            @update:value="onApplyFilters" />
+
+                        <mt-button variant="secondary" size="small" @click="onToggleFilters">
+                            {{ $tc('sw-back-in-stock-notification.list.filters') }}
+                            <span v-if="activeFilterCount > 0" class="sw-back-in-stock-notification-list__filter-badge">
+                                {{ activeFilterCount }}
+                            </span>
+                        </mt-button>
+                    </div>
+                </div>
+                {% endblock %}
+
+                {% block sw_back_in_stock_notification_list_filter_panel %}
+                <div v-if="showFilters" class="sw-back-in-stock-notification-list__filters">
+                    <sw-datepicker
+                        v-model:value="dateFrom"
+                        date-type="datetime"
+                        :label="$tc('sw-back-in-stock-notification.list.dateFrom')" />
+
+                    <sw-datepicker
+                        v-model:value="dateTo"
+                        date-type="datetime"
+                        :label="$tc('sw-back-in-stock-notification.list.dateTo')" />
+
+                    <sw-entity-multi-select
+                        v-model:entityCollection="productCollection"
+                        :label="$tc('sw-back-in-stock-notification.list.filterProduct')"
+                        entity="product" />
+
+                    <div class="sw-back-in-stock-notification-list__filters-actions">
+                        <mt-button variant="primary" size="small" @click="onApplyFilters">
+                            {{ $tc('sw-back-in-stock-notification.list.applyFilters') }}
+                        </mt-button>
+                        <mt-button variant="secondary" size="small" @click="onResetFilters">
+                            {{ $tc('sw-back-in-stock-notification.list.resetFilters') }}
+                        </mt-button>
+                    </div>
+                </div>
+                {% endblock %}
+
+                {% block sw_back_in_stock_notification_list_grid %}
+                <sw-entity-listing
+                    v-if="notifications"
+                    class="sw-back-in-stock-notification-list__grid"
+                    :items="notifications"
+                    :repository="repository"
+                    :columns="columns"
+                    :is-loading="isLoading"
+                    :allow-inline-edit="false"
+                    :allow-edit="false"
+                    :allow-delete="false"
+                    :show-selection="acl.can('back_in_stock_notification.deleter')"
+                    :sort-by="sortBy"
+                    :sort-direction="sortDirection"
+                    :full-page="false"
+                    @page-change="onPageChange"
+                    @column-sort="onSortColumn"
+                    @selection-change="onSelectionChange">
+
+                    {% block sw_back_in_stock_notification_list_grid_column_customer %}
+                    <template #column-customerId="{ item }">
+                        <router-link v-if="customerLink(item)" :to="customerLink(item)">
+                            {{ item.customer ? (item.customer.firstName + ' ' + item.customer.lastName) : item.email }}
+                        </router-link>
+                        <span v-else class="sw-back-in-stock-notification-list__guest">
+                            {{ $tc('sw-back-in-stock-notification.list.guest') }}
+                        </span>
+                    </template>
+                    {% endblock %}
+
+                    {% block sw_back_in_stock_notification_list_grid_column_product %}
+                    <template #column-productId="{ item }">
+                        <router-link :to="productLink(item)">
+                            {{ productLabel(item) }}
+                        </router-link>
+                    </template>
+                    {% endblock %}
+
+                    {% block sw_back_in_stock_notification_list_grid_column_status %}
+                    <template #column-isPending="{ item }">
+                        <sw-label v-if="item.isPending" variant="warning" appearance="pill">
+                            {{ $tc('sw-back-in-stock-notification.list.statusPending') }}
+                        </sw-label>
+                        <sw-label v-else variant="neutral" appearance="pill">
+                            {{ $tc('sw-back-in-stock-notification.list.statusWaiting') }}
+                        </sw-label>
+                    </template>
+                    {% endblock %}
+
+                    {% block sw_back_in_stock_notification_list_grid_actions %}
+                    <template #actions="{ item }">
+                        <sw-context-menu-item
+                            variant="critical"
+                            :disabled="!acl.can('back_in_stock_notification.deleter')"
+                            @click="onDeleteItem(item.id)">
+                            {{ $tc('sw-back-in-stock-notification.list.delete') }}
+                        </sw-context-menu-item>
+                    </template>
+                    {% endblock %}
+
+                    {% block sw_back_in_stock_notification_list_grid_bulk %}
+                    <template #bulk>
+                        <a class="link link-danger" role="button" tabindex="0" @click="onBulkDelete" @keydown.enter="onBulkDelete">
+                            {{ $tc('sw-back-in-stock-notification.list.deleteSelected') }}
+                        </a>
+                    </template>
+                    {% endblock %}
+                </sw-entity-listing>
+                {% endblock %}
+            </sw-card>
+            {% endblock %}
+
+            {% block sw_back_in_stock_notification_list_log %}
+            <sw-back-in-stock-notification-log />
+            {% endblock %}
+        </sw-card-view>
+    </template>
+    {% endblock %}
+
+    {% block sw_back_in_stock_notification_list_delete_modal %}
+    <sw-modal
+        v-if="deleteId"
+        :title="$tc('global.default.warning')"
+        variant="small"
+        @modal-close="onCloseDeleteModal">
+        <p>{{ $tc('sw-back-in-stock-notification.list.deleteConfirm') }}</p>
+        <template #modal-footer>
+            <mt-button variant="secondary" size="small" @click="onCloseDeleteModal">
+                {{ $tc('global.default.cancel') }}
+            </mt-button>
+            <mt-button variant="critical" size="small" :is-loading="isDeleting" @click="onConfirmDelete">
+                {{ $tc('sw-back-in-stock-notification.list.delete') }}
+            </mt-button>
+        </template>
+    </sw-modal>
+    {% endblock %}
+
+    {% block sw_back_in_stock_notification_list_bulk_delete_modal %}
+    <sw-modal
+        v-if="showBulkDeleteModal"
+        :title="$tc('global.default.warning')"
+        variant="small"
+        @modal-close="onCloseBulkDeleteModal">
+        <p>{{ $tc('sw-back-in-stock-notification.list.deleteConfirmBulk', selectionCount, { count: selectionCount }) }}</p>
+        <template #modal-footer>
+            <mt-button variant="secondary" size="small" @click="onCloseBulkDeleteModal">
+                {{ $tc('global.default.cancel') }}
+            </mt-button>
+            <mt-button variant="critical" size="small" :is-loading="isDeleting" @click="onConfirmBulkDelete">
+                {{ $tc('sw-back-in-stock-notification.list.deleteSelected') }}
+            </mt-button>
+        </template>
+    </sw-modal>
+    {% endblock %}
+</sw-page>
+{% endblock %}

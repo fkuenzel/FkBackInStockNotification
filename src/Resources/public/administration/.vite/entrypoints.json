@@ -1,0 +1,25 @@
+{
+  "base": "/bundles/backinstocknotification/administration/",
+  "entryPoints": {
+    "back-in-stock-notification": {
+      "css": [
+        "/bundles/backinstocknotification/administration/assets/back-in-stock-notification-BCuF52f3.css"
+      ],
+      "dynamic": [],
+      "js": [
+        "/bundles/backinstocknotification/administration/assets/back-in-stock-notification-s_wBY1MY.js"
+      ],
+      "legacy": false,
+      "preload": []
+    }
+  },
+  "legacy": false,
+  "metadatas": {},
+  "version": [
+    "7.1.0",
+    7,
+    1,
+    0
+  ],
+  "viteServer": null
+}
