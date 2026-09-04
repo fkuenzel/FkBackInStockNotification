@@ -1,0 +1,10 @@
+# Von Composer-/git-Archiven (Distribution) ausschliessen - Laufzeit-Dateien bleiben drin
+/.gitattributes  export-ignore
+/.gitignore      export-ignore
+/.github         export-ignore
+/tests           export-ignore
+/phpstan.neon    export-ignore
+/phpunit.xml.dist export-ignore
+
+# Konsistente Zeilenenden
+* text=auto
