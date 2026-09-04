@@ -34,7 +34,7 @@ jobs:
           restore-keys: composer-${{ matrix.php }}-
 
       - name: Install dependencies
-        run: composer install --no-interaction --no-progress --prefer-dist --ignore-platform-reqs
+        run: composer install --no-interaction --no-progress --prefer-dist --ignore-platform-reqs --no-plugins
 
       - name: PHPStan (level 8)
         run: vendor/bin/phpstan analyse --no-progress
