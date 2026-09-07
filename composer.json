@@ -52,10 +52,12 @@
             "de-DE": "Benachrichtigt Kunden, wenn ausverkaufte Artikel oder Varianten wieder verfügbar sind."
         },
         "manufacturerLink": {
-            "en-GB": "https://github.com/fkuenzel"
+            "en-GB": "https://github.com/fkuenzel",
+            "de-DE": "https://github.com/fkuenzel"
         },
         "supportLink": {
-            "en-GB": "https://github.com/fkuenzel/FkBackInStockNotification"
+            "en-GB": "https://github.com/fkuenzel/FkBackInStockNotification",
+            "de-DE": "https://github.com/fkuenzel/FkBackInStockNotification"
         }
     }
 }
