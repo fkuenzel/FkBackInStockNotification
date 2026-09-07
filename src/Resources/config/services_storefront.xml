@@ -6,7 +6,7 @@
 
     <!--
         Storefront-only services. Loaded conditionally from the plugin base class
-        (BackInStockNotification::build) so the plugin also boots on headless
+        (FkBackInStockNotification::build) so the plugin also boots on headless
         installations without the Storefront bundle.
     -->
     <services>
@@ -19,16 +19,16 @@
         <service id="fKuenzel\BackInStockNotification\Controller\Storefront\NotificationController" public="true">
             <argument type="service" id="fKuenzel\BackInStockNotification\Service\BackInStockNotificationService"/>
             <argument type="service" id="Shopware\Storefront\Page\GenericPageLoader"/>
-            <argument type="service" id="back_in_stock_notification.logger"/>
+            <argument type="service" id="fk_back_in_stock_notification.logger"/>
             <call method="setContainer">
                 <argument type="service" id="service_container"/>
             </call>
         </service>
         <service id="fKuenzel\BackInStockNotification\Controller\Storefront\AccountNotificationController" public="true">
             <argument type="service" id="fKuenzel\BackInStockNotification\Service\BackInStockNotificationService"/>
-            <argument type="service" id="back_in_stock_notification.repository"/>
+            <argument type="service" id="fk_back_in_stock_notification.repository"/>
             <argument type="service" id="Shopware\Storefront\Page\GenericPageLoader"/>
-            <argument type="service" id="back_in_stock_notification.logger"/>
+            <argument type="service" id="fk_back_in_stock_notification.logger"/>
             <call method="setContainer">
                 <argument type="service" id="service_container"/>
             </call>

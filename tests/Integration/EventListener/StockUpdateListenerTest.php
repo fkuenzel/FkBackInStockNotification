@@ -32,7 +32,7 @@ class StockUpdateListenerTest extends TestCase
 
     protected function setUp(): void
     {
-        $this->notificationRepository = $this->getContainer()->get('back_in_stock_notification.repository');
+        $this->notificationRepository = $this->getContainer()->get('fk_back_in_stock_notification.repository');
         $this->productRepository = $this->getContainer()->get('product.repository');
         $this->service = $this->getContainer()->get(BackInStockNotificationService::class);
         $this->context = Context::createDefaultContext();

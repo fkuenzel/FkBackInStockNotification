@@ -15,11 +15,11 @@ use Symfony\Contracts\EventDispatcher\Event;
 /**
  * Dispatched right before a notification is deleted.
  * Reasons: user_request, expired, admin_delete
- * Event name: back-in-stock-notification.deleted
+ * Event name: fk-back-in-stock-notification.deleted
  */
 class BackInStockNotificationDeletedEvent extends Event
 {
-    public const NAME = 'back-in-stock-notification.deleted';
+    public const NAME = 'fk-back-in-stock-notification.deleted';
 
     public const REASON_USER_REQUEST = 'user_request';
     public const REASON_EXPIRED = 'expired';

@@ -21,7 +21,7 @@ class Migration1788157888BackInStockNotificationCronState extends MigrationStep
     public function update(Connection $connection): void
     {
         $connection->executeStatement(<<<'SQL'
-            CREATE TABLE IF NOT EXISTS `back_in_stock_notification_cron_state` (
+            CREATE TABLE IF NOT EXISTS `fk_back_in_stock_notification_cron_state` (
                 `id`                    BINARY(16)     NOT NULL,
                 `last_run_at`           DATETIME(3)    NULL,
                 `consecutive_failures`  INT            NOT NULL DEFAULT 0,
@@ -39,6 +39,6 @@ class Migration1788157888BackInStockNotificationCronState extends MigrationStep
 
     public function updateDestructive(Connection $connection): void
     {
-        // Tables are dropped by the plugin uninstall (BackInStockNotification::uninstall).
+        // Tables are dropped by the plugin uninstall (FkBackInStockNotification::uninstall).
     }
 }

@@ -14,7 +14,7 @@ class CleanupTask extends ScheduledTask
 {
     public static function getTaskName(): string
     {
-        return 'back_in_stock_notification.cleanup';
+        return 'fk_back_in_stock_notification.cleanup';
     }
 
     public static function getDefaultInterval(): int

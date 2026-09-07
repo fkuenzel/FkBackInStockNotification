@@ -1,5 +1,5 @@
 {
-    "name": "fkuenzel/back-in-stock-notification-plugin",
+    "name": "fkuenzel/fk-back-in-stock-notification-plugin",
     "description": "Back in stock notification plugin for Shopware 6 - notifies customers when sold-out products or variants become available again.",
     "version": "1.0.0",
     "type": "shopware-platform-plugin",
@@ -42,7 +42,7 @@
         }
     },
     "extra": {
-        "shopware-plugin-class": "fKuenzel\\BackInStockNotification\\BackInStockNotification",
+        "shopware-plugin-class": "fKuenzel\\BackInStockNotification\\FkBackInStockNotification",
         "label": {
             "en-GB": "Back in Stock Notification",
             "de-DE": "Benachrichtigung bei Wiederverfügbarkeit"

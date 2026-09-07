@@ -1,1 +1,1 @@
-import './module/sw-back-in-stock-notification';
+import './module/sw-fk-back-in-stock-notification';

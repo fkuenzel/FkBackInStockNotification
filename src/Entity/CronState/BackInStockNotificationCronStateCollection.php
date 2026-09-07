@@ -17,7 +17,7 @@ class BackInStockNotificationCronStateCollection extends EntityCollection
 {
     public function getApiAlias(): string
     {
-        return 'back_in_stock_notification_cron_state_collection';
+        return 'fk_back_in_stock_notification_cron_state_collection';
     }
 
     protected function getExpectedClass(): string

@@ -26,7 +26,7 @@ use Shopware\Core\System\SystemConfig\SystemConfigService;
  */
 class PluginLoggerFactory
 {
-    private const CHANNEL = 'back_in_stock_notification';
+    private const CHANNEL = 'fk_back_in_stock_notification';
     private const DEFAULT_RETENTION = 30;
 
     public function __construct(

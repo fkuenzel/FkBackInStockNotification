@@ -38,7 +38,7 @@ use Symfony\Contracts\EventDispatcher\EventDispatcherInterface;
 
 class BackInStockNotificationService
 {
-    public const CONFIG_DOMAIN = 'BackInStockNotification.config.';
+    public const CONFIG_DOMAIN = 'FkBackInStockNotification.config.';
 
     private const BATCH_SIZE = 100;
 

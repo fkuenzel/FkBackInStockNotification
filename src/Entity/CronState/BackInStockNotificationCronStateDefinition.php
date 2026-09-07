@@ -21,7 +21,7 @@ use Shopware\Core\Framework\DataAbstractionLayer\FieldCollection;
 
 class BackInStockNotificationCronStateDefinition extends EntityDefinition
 {
-    final public const ENTITY_NAME = 'back_in_stock_notification_cron_state';
+    final public const ENTITY_NAME = 'fk_back_in_stock_notification_cron_state';
 
     public function getEntityName(): string
     {

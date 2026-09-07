@@ -14,11 +14,11 @@ use Symfony\Contracts\EventDispatcher\Event;
 
 /**
  * Dispatched for each notification that was successfully queued/sent.
- * Event name: back-in-stock-notification.sent
+ * Event name: fk-back-in-stock-notification.sent
  */
 class BackInStockNotificationSentEvent extends Event
 {
-    public const NAME = 'back-in-stock-notification.sent';
+    public const NAME = 'fk-back-in-stock-notification.sent';
 
     public function __construct(
         private readonly BackInStockNotificationEntity $notification,

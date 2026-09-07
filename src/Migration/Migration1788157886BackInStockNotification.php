@@ -21,7 +21,7 @@ class Migration1788157886BackInStockNotification extends MigrationStep
     public function update(Connection $connection): void
     {
         $connection->executeStatement(<<<'SQL'
-            CREATE TABLE IF NOT EXISTS `back_in_stock_notification` (
+            CREATE TABLE IF NOT EXISTS `fk_back_in_stock_notification` (
                 `id`                          BINARY(16)   NOT NULL,
                 `product_id`                  BINARY(16)   NOT NULL,
                 `product_version_id`          BINARY(16)   NOT NULL,
@@ -49,15 +49,15 @@ class Migration1788157886BackInStockNotification extends MigrationStep
                 KEY `idx.bisn.customer` (`customer_id`),
                 KEY `idx.bisn.product` (`product_id`),
                 KEY `idx.bisn.unsubscribe_token` (`unsubscribe_token`),
-                CONSTRAINT `fk.back_in_stock_notification.product_id` FOREIGN KEY (`product_id`, `product_version_id`)
+                CONSTRAINT `fk.fk_back_in_stock_notification.product_id` FOREIGN KEY (`product_id`, `product_version_id`)
                     REFERENCES `product` (`id`, `version_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-                CONSTRAINT `fk.back_in_stock_notification.product_variant_id` FOREIGN KEY (`product_variant_id`, `product_variant_version_id`)
+                CONSTRAINT `fk.fk_back_in_stock_notification.product_variant_id` FOREIGN KEY (`product_variant_id`, `product_variant_version_id`)
                     REFERENCES `product` (`id`, `version_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-                CONSTRAINT `fk.back_in_stock_notification.customer_id` FOREIGN KEY (`customer_id`)
+                CONSTRAINT `fk.fk_back_in_stock_notification.customer_id` FOREIGN KEY (`customer_id`)
                     REFERENCES `customer` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-                CONSTRAINT `fk.back_in_stock_notification.sales_channel_id` FOREIGN KEY (`sales_channel_id`)
+                CONSTRAINT `fk.fk_back_in_stock_notification.sales_channel_id` FOREIGN KEY (`sales_channel_id`)
                     REFERENCES `sales_channel` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
-                CONSTRAINT `fk.back_in_stock_notification.language_id` FOREIGN KEY (`language_id`)
+                CONSTRAINT `fk.fk_back_in_stock_notification.language_id` FOREIGN KEY (`language_id`)
                     REFERENCES `language` (`id`) ON DELETE SET NULL ON UPDATE CASCADE
             ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
         SQL);
@@ -65,6 +65,6 @@ class Migration1788157886BackInStockNotification extends MigrationStep
 
     public function updateDestructive(Connection $connection): void
     {
-        // Tables are dropped by the plugin uninstall (BackInStockNotification::uninstall).
+        // Tables are dropped by the plugin uninstall (FkBackInStockNotification::uninstall).
     }
 }

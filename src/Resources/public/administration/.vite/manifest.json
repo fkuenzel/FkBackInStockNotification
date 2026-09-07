@@ -1,11 +1,11 @@
 {
   "main.js": {
-    "file": "assets/back-in-stock-notification-s_wBY1MY.js",
-    "name": "back-in-stock-notification",
+    "file": "assets/fk-back-in-stock-notification-s_wBY1MY.js",
+    "name": "fk-back-in-stock-notification",
     "src": "main.js",
     "isEntry": true,
     "css": [
-      "assets/back-in-stock-notification-BCuF52f3.css"
+      "assets/fk-back-in-stock-notification-BCuF52f3.css"
     ]
   }
 }

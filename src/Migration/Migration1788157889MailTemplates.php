@@ -55,19 +55,19 @@ class Migration1788157889MailTemplates extends MigrationStep
             $connection,
             NotificationMailService::TYPE_REGISTER,
             'register',
-            'back_in_stock_notification_register'
+            'fk_back_in_stock_notification_register'
         );
         $this->createMailTemplate(
             $connection,
             NotificationMailService::TYPE_AVAILABLE,
             'available',
-            'back_in_stock_notification_available'
+            'fk_back_in_stock_notification_available'
         );
     }
 
     public function updateDestructive(Connection $connection): void
     {
-        // Mail templates are removed by the plugin uninstall (BackInStockNotification::uninstall).
+        // Mail templates are removed by the plugin uninstall (FkBackInStockNotification::uninstall).
     }
 
     private function createMailTemplate(

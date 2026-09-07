@@ -7,7 +7,7 @@
 {% block buy_widget_buy_form %}
     {{ parent() }}
 
-    {% block buy_widget_back_in_stock_notification %}
-        {% sw_include '@Storefront/storefront/component/back-in-stock-notification/widget.html.twig' %}
+    {% block buy_widget_fk_back_in_stock_notification %}
+        {% sw_include '@Storefront/storefront/component/fk-back-in-stock-notification/widget.html.twig' %}
     {% endblock %}
 {% endblock %}

@@ -14,11 +14,11 @@ use Symfony\Contracts\EventDispatcher\Event;
 
 /**
  * Dispatched when a notification is removed because it expired.
- * Event name: back-in-stock-notification.expired
+ * Event name: fk-back-in-stock-notification.expired
  */
 class BackInStockNotificationExpiredEvent extends Event
 {
-    public const NAME = 'back-in-stock-notification.expired';
+    public const NAME = 'fk-back-in-stock-notification.expired';
 
     public function __construct(
         private readonly BackInStockNotificationEntity $notification,

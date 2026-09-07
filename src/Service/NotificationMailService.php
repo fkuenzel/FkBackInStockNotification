@@ -27,10 +27,10 @@ use Shopware\Core\Framework\DataAbstractionLayer\Search\Filter\EqualsFilter;
  */
 class NotificationMailService
 {
-    public const TYPE_REGISTER = 'back_in_stock_notification_register';
-    public const TYPE_AVAILABLE = 'back_in_stock_notification_available';
+    public const TYPE_REGISTER = 'fk_back_in_stock_notification_register';
+    public const TYPE_AVAILABLE = 'fk_back_in_stock_notification_available';
 
-    private const UNSUBSCRIBE_PATH = '/back-in-stock-notification/unsubscribe/';
+    private const UNSUBSCRIBE_PATH = '/fk-back-in-stock-notification/unsubscribe/';
 
     /**
      * @param EntityRepository<MailTemplateCollection> $mailTemplateRepository

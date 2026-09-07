@@ -17,7 +17,7 @@ class BackInStockNotificationLogCollection extends EntityCollection
 {
     public function getApiAlias(): string
     {
-        return 'back_in_stock_notification_log_collection';
+        return 'fk_back_in_stock_notification_log_collection';
     }
 
     protected function getExpectedClass(): string

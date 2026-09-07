@@ -31,13 +31,13 @@
         </service>
 
         <service id="fKuenzel\BackInStockNotification\Service\BackInStockNotificationService">
-            <argument type="service" id="back_in_stock_notification.repository"/>
-            <argument type="service" id="back_in_stock_notification_log.repository"/>
+            <argument type="service" id="fk_back_in_stock_notification.repository"/>
+            <argument type="service" id="fk_back_in_stock_notification_log.repository"/>
             <argument type="service" id="product.repository"/>
             <argument type="service" id="Shopware\Core\System\SystemConfig\SystemConfigService"/>
             <argument type="service" id="fKuenzel\BackInStockNotification\Service\RateLimitService"/>
             <argument type="service" id="event_dispatcher"/>
-            <argument type="service" id="back_in_stock_notification.logger"/>
+            <argument type="service" id="fk_back_in_stock_notification.logger"/>
         </service>
 
         <service id="fKuenzel\BackInStockNotification\Service\NotificationMailService">
@@ -45,12 +45,12 @@
             <argument type="service" id="mail_template.repository"/>
             <argument type="service" id="sales_channel_domain.repository"/>
             <argument type="service" id="Shopware\Core\System\SystemConfig\SystemConfigService"/>
-            <argument type="service" id="back_in_stock_notification.logger"/>
+            <argument type="service" id="fk_back_in_stock_notification.logger"/>
         </service>
 
         <service id="fKuenzel\BackInStockNotification\Subscriber\RegistrationMailSubscriber">
             <argument type="service" id="fKuenzel\BackInStockNotification\Service\NotificationMailService"/>
-            <argument type="service" id="back_in_stock_notification.logger"/>
+            <argument type="service" id="fk_back_in_stock_notification.logger"/>
         </service>
 
         <service id="fKuenzel\BackInStockNotification\EventListener\StockUpdateListener">
@@ -58,7 +58,7 @@
         </service>
 
         <service id="fKuenzel\BackInStockNotification\Service\CronStateService">
-            <argument type="service" id="back_in_stock_notification_cron_state.repository"/>
+            <argument type="service" id="fk_back_in_stock_notification_cron_state.repository"/>
         </service>
 
         <service id="fKuenzel\BackInStockNotification\ScheduledTask\SendNotificationsTask">
@@ -71,7 +71,7 @@
 
         <service id="fKuenzel\BackInStockNotification\ScheduledTask\SendNotificationsTaskHandler">
             <argument type="service" id="scheduled_task.repository"/>
-            <argument type="service" id="back_in_stock_notification.logger"/>
+            <argument type="service" id="fk_back_in_stock_notification.logger"/>
             <argument type="service" id="fKuenzel\BackInStockNotification\Service\BackInStockNotificationService"/>
             <argument type="service" id="fKuenzel\BackInStockNotification\Service\NotificationMailService"/>
             <argument type="service" id="fKuenzel\BackInStockNotification\Service\CronStateService"/>
@@ -80,7 +80,7 @@
 
         <service id="fKuenzel\BackInStockNotification\ScheduledTask\CleanupTaskHandler">
             <argument type="service" id="scheduled_task.repository"/>
-            <argument type="service" id="back_in_stock_notification.logger"/>
+            <argument type="service" id="fk_back_in_stock_notification.logger"/>
             <argument type="service" id="fKuenzel\BackInStockNotification\Service\BackInStockNotificationService"/>
             <argument type="service" id="Shopware\Core\System\SystemConfig\SystemConfigService"/>
         </service>
@@ -90,7 +90,7 @@
             <argument>%kernel.logs_dir%</argument>
         </service>
 
-        <service id="back_in_stock_notification.logger" class="Psr\Log\LoggerInterface">
+        <service id="fk_back_in_stock_notification.logger" class="Psr\Log\LoggerInterface">
             <factory service="fKuenzel\BackInStockNotification\Service\Log\PluginLoggerFactory" method="create"/>
         </service>
 
@@ -100,13 +100,13 @@
              ============================================================ -->
 
         <service id="fKuenzel\BackInStockNotification\Controller\Admin\NotificationAdminController" public="true">
-            <argument type="service" id="back_in_stock_notification.repository"/>
+            <argument type="service" id="fk_back_in_stock_notification.repository"/>
             <argument type="service" id="product.repository"/>
             <argument type="service" id="fKuenzel\BackInStockNotification\Service\CronStateService"/>
             <argument type="service" id="fKuenzel\BackInStockNotification\ScheduledTask\SendNotificationsTaskHandler"/>
             <argument type="service" id="fKuenzel\BackInStockNotification\Service\BackInStockNotificationService"/>
             <argument>%kernel.logs_dir%</argument>
-            <argument type="service" id="back_in_stock_notification.logger"/>
+            <argument type="service" id="fk_back_in_stock_notification.logger"/>
         </service>
 
     </services>

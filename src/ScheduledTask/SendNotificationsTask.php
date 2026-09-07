@@ -14,7 +14,7 @@ class SendNotificationsTask extends ScheduledTask
 {
     public static function getTaskName(): string
     {
-        return 'back_in_stock_notification.send';
+        return 'fk_back_in_stock_notification.send';
     }
 
     public static function getDefaultInterval(): int

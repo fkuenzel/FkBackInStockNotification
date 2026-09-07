@@ -1,0 +1,82 @@
+{% sw_extends '@Storefront/storefront/page/account/_page.html.twig' %}
+
+{% block page_account_main_content %}
+    {% block page_account_fk_back_in_stock_notification %}
+        <div class="account-fk-back-in-stock-notifications">
+            {% block page_account_fk_back_in_stock_notification_welcome %}
+                <div class="account-welcome">
+                    <h1>{{ 'backInStockNotification.account.title'|trans|sw_sanitize }}</h1>
+                    <p>{{ 'backInStockNotification.account.intro'|trans|sw_sanitize }}</p>
+                </div>
+            {% endblock %}
+
+            {% if notifications.count > 0 %}
+                {% block page_account_fk_back_in_stock_notification_actions %}
+                    <div class="account-fk-back-in-stock-notifications-actions">
+                        <form action="{{ path('frontend.account.fk-back-in-stock-notification.delete-all') }}"
+                              method="post"
+                              data-bisn-confirm="{{ 'backInStockNotification.account.deleteAllConfirm'|trans|striptags }}"
+                              class="js-bisn-confirm-form">
+                            <button type="submit" class="btn btn-outline-danger btn-sm">
+                                {{ 'backInStockNotification.account.deleteAll'|trans|sw_sanitize }}
+                            </button>
+                        </form>
+                    </div>
+                {% endblock %}
+
+                {% block page_account_fk_back_in_stock_notification_table %}
+                    <div class="table-responsive">
+                        <table class="table account-fk-back-in-stock-notifications-table">
+                            <caption class="visually-hidden">{{ 'backInStockNotification.account.title'|trans|striptags }}</caption>
+                            <thead>
+                                <tr>
+                                    <th scope="col">{{ 'backInStockNotification.account.columnProduct'|trans|sw_sanitize }}</th>
+                                    <th scope="col">{{ 'backInStockNotification.account.columnRegisteredAt'|trans|sw_sanitize }}</th>
+                                    <th scope="col" class="text-end">{{ 'backInStockNotification.account.columnActions'|trans|sw_sanitize }}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for notification in notifications %}
+                                    {% set displayProduct = notification.productVariant ?? notification.product %}
+                                    {% set detailId = notification.productVariantId ?? notification.productId %}
+                                    <tr>
+                                        <td>
+                                            {% if displayProduct %}
+                                                <a href="{{ path('frontend.detail.page', { productId: detailId }) }}">
+                                                    {{ displayProduct.translated.name ?? displayProduct.name }}
+                                                </a>
+                                                {% if displayProduct.productNumber %}
+                                                    <div class="text-muted small">{{ displayProduct.productNumber }}</div>
+                                                {% endif %}
+                                            {% else %}
+                                                <span class="text-muted">{{ 'backInStockNotification.account.productRemoved'|trans|sw_sanitize }}</span>
+                                            {% endif %}
+                                        </td>
+                                        <td>{{ notification.createdAt|format_datetime('medium', 'short', locale=app.request.locale) }}</td>
+                                        <td class="text-end">
+                                            <form action="{{ path('frontend.account.fk-back-in-stock-notification.delete', { id: notification.id }) }}"
+                                                  method="post"
+                                                  class="js-bisn-confirm-form d-inline"
+                                                  data-bisn-confirm="{{ 'backInStockNotification.account.deleteConfirm'|trans|striptags }}">
+                                                <button type="submit" class="btn btn-outline-danger btn-sm"
+                                                        aria-label="{{ 'backInStockNotification.account.deleteAria'|trans|striptags }}">
+                                                    {{ 'backInStockNotification.account.delete'|trans|sw_sanitize }}
+                                                </button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                {% endblock %}
+            {% else %}
+                {% block page_account_fk_back_in_stock_notification_empty %}
+                    <div class="account-fk-back-in-stock-notifications-empty alert alert-info" role="status">
+                        {{ 'backInStockNotification.account.empty'|trans|sw_sanitize }}
+                    </div>
+                {% endblock %}
+            {% endif %}
+        </div>
+    {% endblock %}
+{% endblock %}

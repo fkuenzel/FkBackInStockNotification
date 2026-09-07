@@ -34,14 +34,14 @@ use Symfony\Component\Routing\Attribute\Route;
  * Admin API actions backing the administration module: statistics, cron
  * monitoring, manual send trigger, plugin log viewer/download and an audited
  * bulk delete. The plain notification grid is served by the auto-generated DAL
- * API (back_in_stock_notification) and is not duplicated here.
+ * API (fk_back_in_stock_notification) and is not duplicated here.
  *
  * Every route is protected by ACL privileges and scoped to the api context.
  */
 #[Route(defaults: [PlatformRequest::ATTRIBUTE_ROUTE_SCOPE => [ApiRouteScope::ID]])]
 class NotificationAdminController
 {
-    private const LOG_SUBDIR = 'back-in-stock-notification';
+    private const LOG_SUBDIR = 'fk-back-in-stock-notification';
     private const MAX_LINES = 100;
 
     /**
@@ -60,9 +60,9 @@ class NotificationAdminController
     }
 
     #[Route(
-        path: '/api/_action/back-in-stock-notification/statistics',
-        name: 'api.action.back-in-stock-notification.statistics',
-        defaults: ['_acl' => ['back_in_stock_notification:read']],
+        path: '/api/_action/fk-back-in-stock-notification/statistics',
+        name: 'api.action.fk-back-in-stock-notification.statistics',
+        defaults: ['_acl' => ['fk_back_in_stock_notification:read']],
         methods: ['GET']
     )]
     public function statistics(Context $context): JsonResponse
@@ -80,9 +80,9 @@ class NotificationAdminController
     }
 
     #[Route(
-        path: '/api/_action/back-in-stock-notification/cron-state',
-        name: 'api.action.back-in-stock-notification.cron-state',
-        defaults: ['_acl' => ['back_in_stock_notification:read']],
+        path: '/api/_action/fk-back-in-stock-notification/cron-state',
+        name: 'api.action.fk-back-in-stock-notification.cron-state',
+        defaults: ['_acl' => ['fk_back_in_stock_notification:read']],
         methods: ['GET']
     )]
     public function cronState(Context $context): JsonResponse
@@ -99,9 +99,9 @@ class NotificationAdminController
     }
 
     #[Route(
-        path: '/api/_action/back-in-stock-notification/send-now',
-        name: 'api.action.back-in-stock-notification.send-now',
-        defaults: ['_acl' => ['back_in_stock_notification:update']],
+        path: '/api/_action/fk-back-in-stock-notification/send-now',
+        name: 'api.action.fk-back-in-stock-notification.send-now',
+        defaults: ['_acl' => ['fk_back_in_stock_notification:update']],
         methods: ['POST']
     )]
     public function sendNow(Context $context): JsonResponse
@@ -121,9 +121,9 @@ class NotificationAdminController
     }
 
     #[Route(
-        path: '/api/_action/back-in-stock-notification/logs',
-        name: 'api.action.back-in-stock-notification.logs',
-        defaults: ['_acl' => ['back_in_stock_notification:read']],
+        path: '/api/_action/fk-back-in-stock-notification/logs',
+        name: 'api.action.fk-back-in-stock-notification.logs',
+        defaults: ['_acl' => ['fk_back_in_stock_notification:read']],
         methods: ['GET']
     )]
     public function logs(Request $request, Context $context): JsonResponse
@@ -138,9 +138,9 @@ class NotificationAdminController
     }
 
     #[Route(
-        path: '/api/_action/back-in-stock-notification/logs/download',
-        name: 'api.action.back-in-stock-notification.logs.download',
-        defaults: ['_acl' => ['back_in_stock_notification:read']],
+        path: '/api/_action/fk-back-in-stock-notification/logs/download',
+        name: 'api.action.fk-back-in-stock-notification.logs.download',
+        defaults: ['_acl' => ['fk_back_in_stock_notification:read']],
         methods: ['GET']
     )]
     public function downloadLogs(Request $request, Context $context): Response
@@ -162,11 +162,11 @@ class NotificationAdminController
                 );
             }
             $contentType = 'text/csv';
-            $filename = 'back-in-stock-notification-log.csv';
+            $filename = 'fk-back-in-stock-notification-log.csv';
         } else {
             $body = implode("\n", array_map(static fn (array $e): string => $e['raw'], $entries)) . "\n";
             $contentType = 'text/plain';
-            $filename = 'back-in-stock-notification-log.txt';
+            $filename = 'fk-back-in-stock-notification-log.txt';
         }
 
         return new Response($body, Response::HTTP_OK, [
@@ -176,9 +176,9 @@ class NotificationAdminController
     }
 
     #[Route(
-        path: '/api/_action/back-in-stock-notification/delete',
-        name: 'api.action.back-in-stock-notification.delete',
-        defaults: ['_acl' => ['back_in_stock_notification:delete']],
+        path: '/api/_action/fk-back-in-stock-notification/delete',
+        name: 'api.action.fk-back-in-stock-notification.delete',
+        defaults: ['_acl' => ['fk_back_in_stock_notification:delete']],
         methods: ['POST']
     )]
     public function bulkDelete(Request $request, Context $context): JsonResponse

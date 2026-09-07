@@ -49,7 +49,7 @@ bin/console cache:clear
 ## Configuration
 
 All settings live under the plugin configuration (domain
-`BackInStockNotification.config.*`), e.g. active, allowGuests, sendTime,
+`FkBackInStockNotification.config.*`), e.g. active, allowGuests, sendTime,
 notificationValidityDays, tokenValidityDays, auditLogRetentionDays,
 rateLimitPerIpHour, rateLimitPerCustomerDay, logLevel, pluginLogRetentionDays.
 
@@ -84,13 +84,13 @@ The administration overview shows all active registrations by default, with a
 
 Other plugins can subscribe to these events (see section 4.6 of the spec):
 
-- `back-in-stock-notification.registered`
-- `back-in-stock-notification.sent`
-- `back-in-stock-notification.deleted`
-- `back-in-stock-notification.expired`
+- `fk-back-in-stock-notification.registered`
+- `fk-back-in-stock-notification.sent`
+- `fk-back-in-stock-notification.deleted`
+- `fk-back-in-stock-notification.expired`
 
 ```php
-#[AsEventListener(event: 'back-in-stock-notification.registered')]
+#[AsEventListener(event: 'fk-back-in-stock-notification.registered')]
 public function onRegistered(BackInStockNotificationRegisteredEvent $event): void
 {
     // your code

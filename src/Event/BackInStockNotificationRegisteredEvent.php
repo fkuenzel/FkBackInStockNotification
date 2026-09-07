@@ -14,11 +14,11 @@ use Symfony\Contracts\EventDispatcher\Event;
 
 /**
  * Dispatched right after a customer or guest registered for a notification.
- * Event name: back-in-stock-notification.registered
+ * Event name: fk-back-in-stock-notification.registered
  */
 class BackInStockNotificationRegisteredEvent extends Event
 {
-    public const NAME = 'back-in-stock-notification.registered';
+    public const NAME = 'fk-back-in-stock-notification.registered';
 
     public function __construct(
         private readonly BackInStockNotificationEntity $notification,

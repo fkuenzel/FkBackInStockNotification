@@ -65,8 +65,8 @@
             <defaultValue>90</defaultValue>
             <min>1</min>
             <step>1</step>
-            <helpText>Database audit log entries (back_in_stock_notification_log) older than this are removed for performance.</helpText>
-            <helpText lang="de-DE">Audit-Log-Einträge in der Datenbank (back_in_stock_notification_log) älter als dieser Wert werden aus Performance-Gründen entfernt.</helpText>
+            <helpText>Database audit log entries (fk_back_in_stock_notification_log) older than this are removed for performance.</helpText>
+            <helpText lang="de-DE">Audit-Log-Einträge in der Datenbank (fk_back_in_stock_notification_log) älter als dieser Wert werden aus Performance-Gründen entfernt.</helpText>
         </input-field>
     </card>
 
@@ -130,8 +130,8 @@
             <defaultValue>30</defaultValue>
             <min>1</min>
             <step>1</step>
-            <helpText>Plugin log files (var/log/back-in-stock-notification) older than this are deleted.</helpText>
-            <helpText lang="de-DE">Plugin-Logdateien (var/log/back-in-stock-notification) älter als dieser Wert werden gelöscht.</helpText>
+            <helpText>Plugin log files (var/log/fk-back-in-stock-notification) older than this are deleted.</helpText>
+            <helpText lang="de-DE">Plugin-Logdateien (var/log/fk-back-in-stock-notification) älter als dieser Wert werden gelöscht.</helpText>
         </input-field>
     </card>
 
