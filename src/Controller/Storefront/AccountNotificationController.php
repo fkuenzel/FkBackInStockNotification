@@ -3,14 +3,14 @@
 /**
  * Back in Stock Notification Plugin for Shopware 6
  *
- * @license GPL-2.0-only
+ * @license MIT
  */
 
-namespace fKuenzel\BackInStockNotification\Controller\Storefront;
+namespace Fkuenzel\FkBackInStockNotification\Controller\Storefront;
 
-use fKuenzel\BackInStockNotification\Entity\BackInStockNotification\BackInStockNotificationCollection;
-use fKuenzel\BackInStockNotification\Entity\BackInStockNotification\BackInStockNotificationEntity;
-use fKuenzel\BackInStockNotification\Service\BackInStockNotificationService;
+use Fkuenzel\FkBackInStockNotification\Entity\BackInStockNotification\BackInStockNotificationCollection;
+use Fkuenzel\FkBackInStockNotification\Entity\BackInStockNotification\BackInStockNotificationEntity;
+use Fkuenzel\FkBackInStockNotification\Service\BackInStockNotificationService;
 use Psr\Log\LoggerInterface;
 use Shopware\Core\Checkout\Customer\CustomerEntity;
 use Shopware\Core\Framework\DataAbstractionLayer\EntityRepository;
@@ -53,8 +53,8 @@ class AccountNotificationController extends StorefrontController
     }
 
     #[Route(
-        path: '/account/back-in-stock-notifications',
-        name: 'frontend.account.back-in-stock-notification.list',
+        path: '/account/fk-back-in-stock-notifications',
+        name: 'frontend.account.fk-back-in-stock-notification.list',
         methods: ['GET']
     )]
     public function list(Request $request, SalesChannelContext $context): Response
@@ -72,15 +72,15 @@ class AccountNotificationController extends StorefrontController
         /** @var BackInStockNotificationCollection $notifications */
         $notifications = $this->notificationRepository->search($criteria, $context->getContext())->getEntities();
 
-        return $this->renderStorefront('@BackInStockNotification/storefront/page/account/back-in-stock-notifications.html.twig', [
+        return $this->renderStorefront('@BackInStockNotification/storefront/page/account/fk-back-in-stock-notifications.html.twig', [
             'page' => $page,
             'notifications' => $notifications,
         ]);
     }
 
     #[Route(
-        path: '/account/back-in-stock-notifications/{id}/delete',
-        name: 'frontend.account.back-in-stock-notification.delete',
+        path: '/account/fk-back-in-stock-notifications/{id}/delete',
+        name: 'frontend.account.fk-back-in-stock-notification.delete',
         methods: ['POST']
     )]
     public function delete(string $id, SalesChannelContext $context): Response
@@ -91,7 +91,7 @@ class AccountNotificationController extends StorefrontController
         if ($notification === null) {
             $this->addFlash(self::DANGER, $this->trans('backInStockNotification.account.deleteError'));
 
-            return $this->redirectToRoute('frontend.account.back-in-stock-notification.list');
+            return $this->redirectToRoute('frontend.account.fk-back-in-stock-notification.list');
         }
 
         try {
@@ -102,12 +102,12 @@ class AccountNotificationController extends StorefrontController
             $this->addFlash(self::DANGER, $this->trans('backInStockNotification.account.deleteError'));
         }
 
-        return $this->redirectToRoute('frontend.account.back-in-stock-notification.list');
+        return $this->redirectToRoute('frontend.account.fk-back-in-stock-notification.list');
     }
 
     #[Route(
-        path: '/account/back-in-stock-notifications/delete-all',
-        name: 'frontend.account.back-in-stock-notification.delete-all',
+        path: '/account/fk-back-in-stock-notifications/delete-all',
+        name: 'frontend.account.fk-back-in-stock-notification.delete-all',
         methods: ['POST']
     )]
     public function deleteAll(SalesChannelContext $context): Response
@@ -139,12 +139,12 @@ class AccountNotificationController extends StorefrontController
             $this->addFlash(self::INFO, $this->trans('backInStockNotification.account.empty'));
         }
 
-        return $this->redirectToRoute('frontend.account.back-in-stock-notification.list');
+        return $this->redirectToRoute('frontend.account.fk-back-in-stock-notification.list');
     }
 
     #[Route(
-        path: '/back-in-stock-notification/remove',
-        name: 'frontend.back-in-stock-notification.remove',
+        path: '/fk-back-in-stock-notification/remove',
+        name: 'frontend.fk-back-in-stock-notification.remove',
         defaults: ['XmlHttpRequest' => true],
         methods: ['POST']
     )]

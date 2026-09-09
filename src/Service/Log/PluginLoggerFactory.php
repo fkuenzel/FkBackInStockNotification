@@ -3,12 +3,12 @@
 /**
  * Back in Stock Notification Plugin for Shopware 6
  *
- * @license GPL-2.0-only
+ * @license MIT
  */
 
-namespace fKuenzel\BackInStockNotification\Service\Log;
+namespace Fkuenzel\FkBackInStockNotification\Service\Log;
 
-use fKuenzel\BackInStockNotification\Service\BackInStockNotificationService;
+use Fkuenzel\FkBackInStockNotification\Service\BackInStockNotificationService;
 use Monolog\Handler\RotatingFileHandler;
 use Monolog\Level;
 use Monolog\Logger;
@@ -26,7 +26,7 @@ use Shopware\Core\System\SystemConfig\SystemConfigService;
  */
 class PluginLoggerFactory
 {
-    private const CHANNEL = 'back_in_stock_notification';
+    private const CHANNEL = 'fk_back_in_stock_notification';
     private const DEFAULT_RETENTION = 30;
 
     public function __construct(

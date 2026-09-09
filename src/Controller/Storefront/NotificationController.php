@@ -3,16 +3,16 @@
 /**
  * Back in Stock Notification Plugin for Shopware 6
  *
- * @license GPL-2.0-only
+ * @license MIT
  */
 
-namespace fKuenzel\BackInStockNotification\Controller\Storefront;
+namespace Fkuenzel\FkBackInStockNotification\Controller\Storefront;
 
-use fKuenzel\BackInStockNotification\Exception\DuplicateNotificationException;
-use fKuenzel\BackInStockNotification\Exception\InvalidEmailException;
-use fKuenzel\BackInStockNotification\Exception\ProductNotEligibleException;
-use fKuenzel\BackInStockNotification\Exception\RateLimitExceededException;
-use fKuenzel\BackInStockNotification\Service\BackInStockNotificationService;
+use Fkuenzel\FkBackInStockNotification\Exception\DuplicateNotificationException;
+use Fkuenzel\FkBackInStockNotification\Exception\InvalidEmailException;
+use Fkuenzel\FkBackInStockNotification\Exception\ProductNotEligibleException;
+use Fkuenzel\FkBackInStockNotification\Exception\RateLimitExceededException;
+use Fkuenzel\FkBackInStockNotification\Service\BackInStockNotificationService;
 use Psr\Log\LoggerInterface;
 use Shopware\Core\PlatformRequest;
 use Shopware\Core\System\SalesChannel\SalesChannelContext;
@@ -48,8 +48,8 @@ class NotificationController extends StorefrontController
     }
 
     #[Route(
-        path: '/back-in-stock-notification/register',
-        name: 'frontend.back-in-stock-notification.register',
+        path: '/fk-back-in-stock-notification/register',
+        name: 'frontend.fk-back-in-stock-notification.register',
         defaults: ['XmlHttpRequest' => true],
         methods: ['POST']
     )]
@@ -110,8 +110,8 @@ class NotificationController extends StorefrontController
      * it only validates the token and shows a confirmation form.
      */
     #[Route(
-        path: '/back-in-stock-notification/unsubscribe/{token}',
-        name: 'frontend.back-in-stock-notification.unsubscribe',
+        path: '/fk-back-in-stock-notification/unsubscribe/{token}',
+        name: 'frontend.fk-back-in-stock-notification.unsubscribe',
         methods: ['GET']
     )]
     public function unsubscribeConfirm(string $token, Request $request, SalesChannelContext $context): Response
@@ -131,8 +131,8 @@ class NotificationController extends StorefrontController
      * Performs the actual unsubscribe after the confirmation form is submitted.
      */
     #[Route(
-        path: '/back-in-stock-notification/unsubscribe/{token}',
-        name: 'frontend.back-in-stock-notification.unsubscribe.confirm',
+        path: '/fk-back-in-stock-notification/unsubscribe/{token}',
+        name: 'frontend.fk-back-in-stock-notification.unsubscribe.confirm',
         methods: ['POST']
     )]
     public function unsubscribe(string $token, Request $request, SalesChannelContext $context): Response
@@ -152,7 +152,7 @@ class NotificationController extends StorefrontController
     {
         $page = $this->genericPageLoader->load($request, $context);
 
-        return $this->renderStorefront('@BackInStockNotification/storefront/page/back-in-stock-notification/unsubscribe.html.twig', [
+        return $this->renderStorefront('@BackInStockNotification/storefront/page/fk-back-in-stock-notification/unsubscribe.html.twig', [
             'page' => $page,
             'unsubscribeMode' => $mode,
             'unsubscribeToken' => $token,

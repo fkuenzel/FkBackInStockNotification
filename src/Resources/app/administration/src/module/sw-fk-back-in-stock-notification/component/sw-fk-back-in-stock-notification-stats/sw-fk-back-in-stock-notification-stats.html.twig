@@ -1,0 +1,33 @@
+{% block sw_fk_back_in_stock_notification_stats %}
+<sw-card
+    class="sw-fk-back-in-stock-notification-stats"
+    :title="$tc('sw-fk-back-in-stock-notification.stats.title')"
+    position-identifier="sw-fk-back-in-stock-notification-stats"
+    :is-loading="isLoading">
+
+    <div class="sw-fk-back-in-stock-notification-stats__metrics">
+        <div class="sw-fk-back-in-stock-notification-stats__metric">
+            <div class="sw-fk-back-in-stock-notification-stats__value">{{ stats.total }}</div>
+            <div class="sw-fk-back-in-stock-notification-stats__label">{{ $tc('sw-fk-back-in-stock-notification.stats.totalActive') }}</div>
+        </div>
+        <div class="sw-fk-back-in-stock-notification-stats__metric">
+            <div class="sw-fk-back-in-stock-notification-stats__value">{{ stats.today }}</div>
+            <div class="sw-fk-back-in-stock-notification-stats__label">{{ $tc('sw-fk-back-in-stock-notification.stats.today') }}</div>
+        </div>
+    </div>
+
+    {% block sw_fk_back_in_stock_notification_stats_top %}
+    <div v-if="stats.topProducts && stats.topProducts.length" class="sw-fk-back-in-stock-notification-stats__top">
+        <h4>{{ $tc('sw-fk-back-in-stock-notification.stats.topProducts') }}</h4>
+        <ol class="sw-fk-back-in-stock-notification-stats__top-list">
+            <li v-for="product in stats.topProducts" :key="product.productId">
+                <router-link :to="{ name: 'sw.product.detail', params: { id: product.productId } }">
+                    {{ product.name || product.productId }}
+                </router-link>
+                <span class="sw-fk-back-in-stock-notification-stats__top-count">{{ product.count }}</span>
+            </li>
+        </ol>
+    </div>
+    {% endblock %}
+</sw-card>
+{% endblock %}

@@ -3,13 +3,13 @@
 /**
  * Back in Stock Notification Plugin for Shopware 6
  *
- * @license GPL-2.0-only
+ * @license MIT
  */
 
-namespace fKuenzel\BackInStockNotification\Service;
+namespace Fkuenzel\FkBackInStockNotification\Service;
 
-use fKuenzel\BackInStockNotification\Entity\BackInStockNotification\BackInStockNotificationEntity;
-use fKuenzel\BackInStockNotification\Entity\CronState\BackInStockNotificationCronStateEntity;
+use Fkuenzel\FkBackInStockNotification\Entity\BackInStockNotification\BackInStockNotificationEntity;
+use Fkuenzel\FkBackInStockNotification\Entity\CronState\BackInStockNotificationCronStateEntity;
 use Psr\Log\LoggerInterface;
 use Shopware\Core\Content\Mail\Service\AbstractMailService;
 use Shopware\Core\Content\MailTemplate\MailTemplateEntity;
@@ -27,10 +27,10 @@ use Shopware\Core\Framework\DataAbstractionLayer\Search\Filter\EqualsFilter;
  */
 class NotificationMailService
 {
-    public const TYPE_REGISTER = 'back_in_stock_notification_register';
-    public const TYPE_AVAILABLE = 'back_in_stock_notification_available';
+    public const TYPE_REGISTER = 'fk_back_in_stock_notification_register';
+    public const TYPE_AVAILABLE = 'fk_back_in_stock_notification_available';
 
-    private const UNSUBSCRIBE_PATH = '/back-in-stock-notification/unsubscribe/';
+    private const UNSUBSCRIBE_PATH = '/fk-back-in-stock-notification/unsubscribe/';
 
     /**
      * @param EntityRepository<MailTemplateCollection> $mailTemplateRepository

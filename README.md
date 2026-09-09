@@ -11,7 +11,7 @@ Kundenkonto, das Shop-Team verwaltet alle Anmeldungen in der Administration.
 
 - Namespace: `fKuenzel\BackInStockNotification`
 - Ziel: Shopware 6.7.x (getestet auf Live-System mit Shopware 6.7.13.1)
-- Lizenz: GPL-2.0-only
+- Lizenz: MIT
 
 ## Voraussetzungen
 
@@ -66,7 +66,7 @@ nicht auf einen Produktions- oder Demo-Host.
 ## Konfiguration
 
 Alle Einstellungen liegen in der Plugin-Konfiguration (Domain
-`BackInStockNotification.config.*`), u. a. active, allowGuests, sendTime,
+`FkBackInStockNotification.config.*`), u. a. active, allowGuests, sendTime,
 notificationValidityDays, tokenValidityDays, auditLogRetentionDays,
 rateLimitPerIpHour, rateLimitPerCustomerDay, logLevel, pluginLogRetentionDays.
 
@@ -101,13 +101,13 @@ Die Admin-Übersicht zeigt standardmäßig alle aktiven Anmeldungen; per Umschal
 
 Andere Plugins können diese Events abonnieren:
 
-- `back-in-stock-notification.registered`
-- `back-in-stock-notification.sent`
-- `back-in-stock-notification.deleted`
-- `back-in-stock-notification.expired`
+- `fk-back-in-stock-notification.registered`
+- `fk-back-in-stock-notification.sent`
+- `fk-back-in-stock-notification.deleted`
+- `fk-back-in-stock-notification.expired`
 
 ```php
-#[AsEventListener(event: 'back-in-stock-notification.registered')]
+#[AsEventListener(event: 'fk-back-in-stock-notification.registered')]
 public function onRegistered(BackInStockNotificationRegisteredEvent $event): void
 {
     // eigener Code

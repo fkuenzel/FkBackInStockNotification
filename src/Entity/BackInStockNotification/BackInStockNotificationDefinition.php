@@ -3,10 +3,10 @@
 /**
  * Back in Stock Notification Plugin for Shopware 6
  *
- * @license GPL-2.0-only
+ * @license MIT
  */
 
-namespace fKuenzel\BackInStockNotification\Entity\BackInStockNotification;
+namespace Fkuenzel\FkBackInStockNotification\Entity\BackInStockNotification;
 
 use Shopware\Core\Checkout\Customer\CustomerDefinition;
 use Shopware\Core\System\Language\LanguageDefinition;
@@ -30,7 +30,7 @@ use Shopware\Core\Framework\DataAbstractionLayer\FieldCollection;
 
 class BackInStockNotificationDefinition extends EntityDefinition
 {
-    final public const ENTITY_NAME = 'back_in_stock_notification';
+    final public const ENTITY_NAME = 'fk_back_in_stock_notification';
 
     public function getEntityName(): string
     {

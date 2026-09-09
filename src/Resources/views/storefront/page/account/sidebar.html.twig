@@ -3,11 +3,11 @@
 {% block page_account_sidebar_link_orders %}
     {{ parent() }}
 
-    {% block page_account_sidebar_link_back_in_stock_notification %}
-        <a href="{{ path('frontend.account.back-in-stock-notification.list') }}"
+    {% block page_account_sidebar_link_fk_back_in_stock_notification %}
+        <a href="{{ path('frontend.account.fk-back-in-stock-notification.list') }}"
            title="{{ 'backInStockNotification.account.title'|trans|striptags }}"
-           class="list-group-item list-group-item-action account-aside-item{% if activeRoute starts with('frontend.account.back-in-stock-notification') %} is-active{% endif %}"
-           {% if activeRoute starts with('frontend.account.back-in-stock-notification') %} aria-current="page"{% endif %}>
+           class="list-group-item list-group-item-action account-aside-item{% if activeRoute starts with('frontend.account.fk-back-in-stock-notification') %} is-active{% endif %}"
+           {% if activeRoute starts with('frontend.account.fk-back-in-stock-notification') %} aria-current="page"{% endif %}>
             {{ 'backInStockNotification.account.menuLabel'|trans|sw_sanitize }}
         </a>
     {% endblock %}

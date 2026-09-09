@@ -3,12 +3,12 @@
 /**
  * Back in Stock Notification Plugin for Shopware 6
  *
- * @license GPL-2.0-only
+ * @license MIT
  */
 
-namespace fKuenzel\BackInStockNotification\Tests\Integration\ScheduledTask;
+namespace Fkuenzel\FkBackInStockNotification\Tests\Integration\ScheduledTask;
 
-use fKuenzel\BackInStockNotification\Service\BackInStockNotificationService;
+use Fkuenzel\FkBackInStockNotification\Service\BackInStockNotificationService;
 use PHPUnit\Framework\TestCase;
 use Shopware\Core\Defaults;
 use Shopware\Core\Framework\Context;
@@ -34,8 +34,8 @@ class SendNotificationsTaskTest extends TestCase
 
     protected function setUp(): void
     {
-        $this->notificationRepository = $this->getContainer()->get('back_in_stock_notification.repository');
-        $this->logRepository = $this->getContainer()->get('back_in_stock_notification_log.repository');
+        $this->notificationRepository = $this->getContainer()->get('fk_back_in_stock_notification.repository');
+        $this->logRepository = $this->getContainer()->get('fk_back_in_stock_notification_log.repository');
         $this->service = $this->getContainer()->get(BackInStockNotificationService::class);
         $this->context = Context::createDefaultContext();
     }

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!--
     Storefront routes. Imported conditionally from the plugin base class
-    (BackInStockNotification::configureRoutes) only when the Storefront bundle
+    (FkBackInStockNotification::configureRoutes) only when the Storefront bundle
     is installed, so the attribute loader never reflects on the storefront
     controllers on a headless installation.
 -->

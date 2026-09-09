@@ -1,9 +1,9 @@
 {
-    "name": "fkuenzel/back-in-stock-notification-plugin",
+    "name": "fkuenzel/fk-back-in-stock-notification-plugin",
     "description": "Back in stock notification plugin for Shopware 6 - notifies customers when sold-out products or variants become available again.",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "type": "shopware-platform-plugin",
-    "license": "GPL-2.0-only",
+    "license": "MIT",
     "keywords": [
         "shopware",
         "shopware6",
@@ -33,16 +33,16 @@
     },
     "autoload": {
         "psr-4": {
-            "fKuenzel\\BackInStockNotification\\": "src/"
+            "Fkuenzel\\FkBackInStockNotification\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "fKuenzel\\BackInStockNotification\\Tests\\": "tests/"
+            "Fkuenzel\\FkBackInStockNotification\\Tests\\": "tests/"
         }
     },
     "extra": {
-        "shopware-plugin-class": "fKuenzel\\BackInStockNotification\\BackInStockNotification",
+        "shopware-plugin-class": "Fkuenzel\\FkBackInStockNotification\\FkBackInStockNotification",
         "label": {
             "en-GB": "Back in Stock Notification",
             "de-DE": "Benachrichtigung bei Wiederverfügbarkeit"
@@ -52,10 +52,12 @@
             "de-DE": "Benachrichtigt Kunden, wenn ausverkaufte Artikel oder Varianten wieder verfügbar sind."
         },
         "manufacturerLink": {
-            "en-GB": "https://github.com/fkuenzel"
+            "en-GB": "https://github.com/fkuenzel",
+            "de-DE": "https://github.com/fkuenzel"
         },
         "supportLink": {
-            "en-GB": "https://github.com/fkuenzel/FkBackInStockNotification"
+            "en-GB": "https://github.com/fkuenzel/FkBackInStockNotification",
+            "de-DE": "https://github.com/fkuenzel/FkBackInStockNotification"
         }
     }
 }

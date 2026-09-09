@@ -1,0 +1,70 @@
+{
+    "sw-fk-back-in-stock-notification": {
+        "general": {
+            "mainMenuItemGeneral": "Back in stock",
+            "description": "Manage back-in-stock notifications for sold-out products."
+        },
+        "list": {
+            "title": "Back in stock notifications",
+            "gridTitle": "Notifications",
+            "refresh": "Refresh",
+            "searchPlaceholder": "Search by email...",
+            "onlyPending": "Only pending",
+            "filters": "Filters",
+            "dateFrom": "Registered from",
+            "dateTo": "Registered until",
+            "filterProduct": "Product",
+            "applyFilters": "Apply",
+            "resetFilters": "Reset",
+            "columnEmail": "Email",
+            "columnCustomer": "Customer",
+            "columnProduct": "Product / variant",
+            "columnStatus": "Status",
+            "columnCreatedAt": "Registered at",
+            "guest": "Guest",
+            "statusPending": "Pending send",
+            "statusWaiting": "Waiting",
+            "delete": "Delete",
+            "deleteSelected": "Delete selected",
+            "deleteConfirm": "Do you really want to delete this notification?",
+            "deleteConfirmBulk": "Do you really want to delete {count} notification? | Do you really want to delete {count} notifications?",
+            "deleteSuccess": "{count} notification deleted. | {count} notifications deleted.",
+            "deleteError": "The notification could not be deleted.",
+            "loadError": "The notifications could not be loaded.",
+            "productRemoved": "Product removed"
+        },
+        "stats": {
+            "title": "Statistics",
+            "totalActive": "Active notifications",
+            "today": "Added today",
+            "topProducts": "Top 5 products"
+        },
+        "cron": {
+            "title": "Send cron monitoring",
+            "sendNow": "Send now",
+            "healthy": "The send job is healthy.",
+            "unhealthy": "The send job is failing.",
+            "failures": "{count} consecutive failure. | {count} consecutive failures.",
+            "lastRun": "Last run",
+            "never": "Never",
+            "consecutiveFailures": "Consecutive failures",
+            "lastError": "Last error at",
+            "sendSuccess": "No recipients were due. | {count} recipient was notified. | {count} recipients were notified.",
+            "sendError": "The manual send failed."
+        },
+        "log": {
+            "title": "Plugin log",
+            "levelAll": "All levels",
+            "levelDebug": "Debug",
+            "levelInfo": "Info",
+            "levelWarning": "Warning",
+            "levelError": "Error",
+            "refresh": "Refresh",
+            "liveTail": "Live tail",
+            "updated": "Updated",
+            "empty": "No log entries found.",
+            "loadError": "The log could not be loaded.",
+            "downloadError": "The log could not be downloaded."
+        }
+    }
+}

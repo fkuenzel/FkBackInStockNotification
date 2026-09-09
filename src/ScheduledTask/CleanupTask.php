@@ -3,10 +3,10 @@
 /**
  * Back in Stock Notification Plugin for Shopware 6
  *
- * @license GPL-2.0-only
+ * @license MIT
  */
 
-namespace fKuenzel\BackInStockNotification\ScheduledTask;
+namespace Fkuenzel\FkBackInStockNotification\ScheduledTask;
 
 use Shopware\Core\Framework\MessageQueue\ScheduledTask\ScheduledTask;
 
@@ -14,7 +14,7 @@ class CleanupTask extends ScheduledTask
 {
     public static function getTaskName(): string
     {
-        return 'back_in_stock_notification.cleanup';
+        return 'fk_back_in_stock_notification.cleanup';
     }
 
     public static function getDefaultInterval(): int

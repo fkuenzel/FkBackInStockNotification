@@ -3,10 +3,10 @@
 /**
  * Back in Stock Notification Plugin for Shopware 6
  *
- * @license GPL-2.0-only
+ * @license MIT
  */
 
-namespace fKuenzel\BackInStockNotification\Entity\Log;
+namespace Fkuenzel\FkBackInStockNotification\Entity\Log;
 
 use Shopware\Core\Framework\DataAbstractionLayer\EntityCollection;
 
@@ -17,7 +17,7 @@ class BackInStockNotificationLogCollection extends EntityCollection
 {
     public function getApiAlias(): string
     {
-        return 'back_in_stock_notification_log_collection';
+        return 'fk_back_in_stock_notification_log_collection';
     }
 
     protected function getExpectedClass(): string

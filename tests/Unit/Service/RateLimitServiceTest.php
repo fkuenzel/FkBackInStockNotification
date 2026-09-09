@@ -3,18 +3,18 @@
 /**
  * Back in Stock Notification Plugin for Shopware 6
  *
- * @license GPL-2.0-only
+ * @license MIT
  */
 
-namespace fKuenzel\BackInStockNotification\Tests\Unit\Service;
+namespace Fkuenzel\FkBackInStockNotification\Tests\Unit\Service;
 
-use fKuenzel\BackInStockNotification\Service\RateLimitService;
+use Fkuenzel\FkBackInStockNotification\Service\RateLimitService;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 use Psr\Cache\CacheItemInterface;
 use Psr\Cache\CacheItemPoolInterface;
 
-#[CoversClass(\fKuenzel\BackInStockNotification\Service\RateLimitService::class)]
+#[CoversClass(\Fkuenzel\FkBackInStockNotification\Service\RateLimitService::class)]
 class RateLimitServiceTest extends TestCase
 {
     private RateLimitService $service;

@@ -6,5 +6,7 @@
 /phpstan.neon    export-ignore
 /phpunit.xml.dist export-ignore
 
+/src/Resources/public/**/*.map export-ignore
+
 # Konsistente Zeilenenden
 * text=auto

@@ -3,13 +3,13 @@
 /**
  * Back in Stock Notification Plugin for Shopware 6
  *
- * @license GPL-2.0-only
+ * @license MIT
  */
 
-namespace fKuenzel\BackInStockNotification\Tests\Unit\Service;
+namespace Fkuenzel\FkBackInStockNotification\Tests\Unit\Service;
 
-use fKuenzel\BackInStockNotification\Entity\BackInStockNotification\BackInStockNotificationEntity;
-use fKuenzel\BackInStockNotification\Service\NotificationMailService;
+use Fkuenzel\FkBackInStockNotification\Entity\BackInStockNotification\BackInStockNotificationEntity;
+use Fkuenzel\FkBackInStockNotification\Service\NotificationMailService;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 use Psr\Log\LoggerInterface;
@@ -20,7 +20,7 @@ use Shopware\Core\Framework\DataAbstractionLayer\Search\EntitySearchResult;
 use Shopware\Core\Framework\Uuid\Uuid;
 use Shopware\Core\System\SystemConfig\SystemConfigService;
 
-#[CoversClass(\fKuenzel\BackInStockNotification\Service\NotificationMailService::class)]
+#[CoversClass(\Fkuenzel\FkBackInStockNotification\Service\NotificationMailService::class)]
 class NotificationMailServiceTest extends TestCase
 {
     public function testEmptyAvailabilityListSendsNoMail(): void
