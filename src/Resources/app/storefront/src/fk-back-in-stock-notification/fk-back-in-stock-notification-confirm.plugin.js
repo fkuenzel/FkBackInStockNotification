@@ -3,7 +3,7 @@
  * account area (single delete and delete-all). These forms perform a normal
  * full-page POST; this plugin only guards the submit.
  *
- * @license GPL-2.0-only
+ * @license MIT
  */
 export default class BackInStockNotificationConfirmPlugin extends window.PluginBaseClass {
     init() {

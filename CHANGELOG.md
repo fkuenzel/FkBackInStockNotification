@@ -7,6 +7,17 @@ und das Projekt folgt [Semantic Versioning](https://semver.org/lang/de/).
 
 ## [Unveröffentlicht]
 
+## [1.0.1] - 2026-09-09
+
+### Geändert
+- Lizenz von GPL-2.0-only auf MIT gewechselt.
+- Technischen Namen und internen Prefix durchgängig auf `Fk`/`fk` vereinheitlicht: Plugin-Ordner `FkBackInStockNotification`, PHP-Namespace `Fkuenzel\FkBackInStockNotification`.
+- Store-Metadaten in `composer.json` ergänzt (`de-DE` für `manufacturerLink`/`supportLink`).
+
+### Entfernt
+- Verwaiste alte Mail-Template-Ordner (`back_in_stock_notification_*`) und leeres Storefront-`dist`-Verzeichnis aus der Distribution.
+- Source-Maps aus dem Distributions-Archiv.
+
 ## [1.0.0] - 2026-09-03
 
 ### Hinzugefügt
@@ -28,5 +39,6 @@ und das Projekt folgt [Semantic Versioning](https://semver.org/lang/de/).
 - Geprüft: PHPStan Level 8 (0 Fehler), Unit-Tests grün (PHP 8.2/8.3/8.4).
 - Kompatibilität: Shopware 6.7.x, PHP 8.2+. Abnahme auf 6.7.12.1, Live-Betrieb auf 6.7.13.1.
 
-[Unveröffentlicht]: https://github.com/fkuenzel/FkBackInStockNotification/compare/v1.0.0...HEAD
+[Unveröffentlicht]: https://github.com/fkuenzel/FkBackInStockNotification/compare/v1.0.1...HEAD
+[1.0.1]: https://github.com/fkuenzel/FkBackInStockNotification/compare/v1.0.0...v1.0.1
 [1.0.0]: https://github.com/fkuenzel/FkBackInStockNotification/releases/tag/v1.0.0

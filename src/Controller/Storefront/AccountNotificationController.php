@@ -3,14 +3,14 @@
 /**
  * Back in Stock Notification Plugin for Shopware 6
  *
- * @license GPL-2.0-only
+ * @license MIT
  */
 
-namespace fKuenzel\BackInStockNotification\Controller\Storefront;
+namespace Fkuenzel\FkBackInStockNotification\Controller\Storefront;
 
-use fKuenzel\BackInStockNotification\Entity\BackInStockNotification\BackInStockNotificationCollection;
-use fKuenzel\BackInStockNotification\Entity\BackInStockNotification\BackInStockNotificationEntity;
-use fKuenzel\BackInStockNotification\Service\BackInStockNotificationService;
+use Fkuenzel\FkBackInStockNotification\Entity\BackInStockNotification\BackInStockNotificationCollection;
+use Fkuenzel\FkBackInStockNotification\Entity\BackInStockNotification\BackInStockNotificationEntity;
+use Fkuenzel\FkBackInStockNotification\Service\BackInStockNotificationService;
 use Psr\Log\LoggerInterface;
 use Shopware\Core\Checkout\Customer\CustomerEntity;
 use Shopware\Core\Framework\DataAbstractionLayer\EntityRepository;

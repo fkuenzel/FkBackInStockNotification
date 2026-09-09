@@ -3,10 +3,10 @@
 /**
  * Back in Stock Notification Plugin for Shopware 6
  *
- * @license GPL-2.0-only
+ * @license MIT
  */
 
-namespace fKuenzel\BackInStockNotification\Entity\CronState;
+namespace Fkuenzel\FkBackInStockNotification\Entity\CronState;
 
 use Shopware\Core\Framework\DataAbstractionLayer\EntityCollection;
 

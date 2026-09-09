@@ -3,15 +3,10 @@
 /**
  * Back in Stock Notification Plugin for Shopware 6
  *
- * This plugin is free software; you can redistribute it and/or
- * modify it under the terms of the GNU General Public License
- * as published by the Free Software Foundation; version 2
- * of the License.
- *
- * @license GPL-2.0-only
+ * @license MIT
  */
 
-namespace fKuenzel\BackInStockNotification;
+namespace Fkuenzel\FkBackInStockNotification;
 
 use Doctrine\DBAL\ArrayParameterType;
 use Doctrine\DBAL\Connection;

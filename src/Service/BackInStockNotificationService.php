@@ -3,28 +3,28 @@
 /**
  * Back in Stock Notification Plugin for Shopware 6
  *
- * @license GPL-2.0-only
+ * @license MIT
  */
 
-namespace fKuenzel\BackInStockNotification\Service;
+namespace Fkuenzel\FkBackInStockNotification\Service;
 
-use fKuenzel\BackInStockNotification\Entity\BackInStockNotification\BackInStockNotificationCollection;
-use fKuenzel\BackInStockNotification\Entity\BackInStockNotification\BackInStockNotificationEntity;
-use fKuenzel\BackInStockNotification\Event\BackInStockNotificationDeletedEvent;
-use fKuenzel\BackInStockNotification\Event\BackInStockNotificationExpiredEvent;
-use fKuenzel\BackInStockNotification\Event\BackInStockNotificationRegisteredEvent;
-use fKuenzel\BackInStockNotification\Event\BackInStockNotificationSentEvent;
-use fKuenzel\BackInStockNotification\Exception\DuplicateNotificationException;
-use fKuenzel\BackInStockNotification\Exception\InvalidEmailException;
-use fKuenzel\BackInStockNotification\Exception\ProductNotEligibleException;
-use fKuenzel\BackInStockNotification\Exception\RateLimitExceededException;
+use Fkuenzel\FkBackInStockNotification\Entity\BackInStockNotification\BackInStockNotificationCollection;
+use Fkuenzel\FkBackInStockNotification\Entity\BackInStockNotification\BackInStockNotificationEntity;
+use Fkuenzel\FkBackInStockNotification\Event\BackInStockNotificationDeletedEvent;
+use Fkuenzel\FkBackInStockNotification\Event\BackInStockNotificationExpiredEvent;
+use Fkuenzel\FkBackInStockNotification\Event\BackInStockNotificationRegisteredEvent;
+use Fkuenzel\FkBackInStockNotification\Event\BackInStockNotificationSentEvent;
+use Fkuenzel\FkBackInStockNotification\Exception\DuplicateNotificationException;
+use Fkuenzel\FkBackInStockNotification\Exception\InvalidEmailException;
+use Fkuenzel\FkBackInStockNotification\Exception\ProductNotEligibleException;
+use Fkuenzel\FkBackInStockNotification\Exception\RateLimitExceededException;
 use Psr\Log\LoggerInterface;
 use Shopware\Core\Content\Product\ProductEntity;
 use Shopware\Core\Defaults;
 use Shopware\Core\Framework\Api\Context\AdminApiSource;
 use Shopware\Core\Framework\Context;
 use Shopware\Core\Framework\DataAbstractionLayer\EntityRepository;
-use fKuenzel\BackInStockNotification\Entity\Log\BackInStockNotificationLogCollection;
+use Fkuenzel\FkBackInStockNotification\Entity\Log\BackInStockNotificationLogCollection;
 use Shopware\Core\Content\Product\ProductCollection;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Criteria;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Filter\AndFilter;

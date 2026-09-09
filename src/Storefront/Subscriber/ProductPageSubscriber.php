@@ -3,12 +3,12 @@
 /**
  * Back in Stock Notification Plugin for Shopware 6
  *
- * @license GPL-2.0-only
+ * @license MIT
  */
 
-namespace fKuenzel\BackInStockNotification\Storefront\Subscriber;
+namespace Fkuenzel\FkBackInStockNotification\Storefront\Subscriber;
 
-use fKuenzel\BackInStockNotification\Service\BackInStockNotificationService;
+use Fkuenzel\FkBackInStockNotification\Service\BackInStockNotificationService;
 use Shopware\Core\Content\Product\ProductEntity;
 use Shopware\Core\Framework\Struct\ArrayStruct;
 use Shopware\Storefront\Page\Product\ProductPageLoadedEvent;

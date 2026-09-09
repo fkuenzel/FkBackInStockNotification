@@ -3,10 +3,10 @@
 /**
  * Back in Stock Notification Plugin for Shopware 6
  *
- * @license GPL-2.0-only
+ * @license MIT
  */
 
-namespace fKuenzel\BackInStockNotification\Entity\Log;
+namespace Fkuenzel\FkBackInStockNotification\Entity\Log;
 
 use Shopware\Core\Framework\DataAbstractionLayer\Entity;
 use Shopware\Core\Framework\DataAbstractionLayer\EntityIdTrait;

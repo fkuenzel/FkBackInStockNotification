@@ -3,10 +3,10 @@
 /**
  * Back in Stock Notification Plugin for Shopware 6
  *
- * @license GPL-2.0-only
+ * @license MIT
  */
 
-namespace fKuenzel\BackInStockNotification\Entity\BackInStockNotification;
+namespace Fkuenzel\FkBackInStockNotification\Entity\BackInStockNotification;
 
 use Shopware\Core\Checkout\Customer\CustomerDefinition;
 use Shopware\Core\System\Language\LanguageDefinition;

@@ -8,7 +8,7 @@ registrations in the administration.
 
 - Namespace: `fKuenzel\BackInStockNotification`
 - Target: Shopware 6.7.x (tested on a live system with Shopware 6.7.13.1)
-- License: GPL-2.0-only
+- License: MIT
 
 ## Requirements
 

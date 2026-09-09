@@ -5,7 +5,7 @@
  * AJAX registration form and the "unsubscribe" action shown to already
  * registered customers, giving immediate inline feedback without a page reload.
  *
- * @license GPL-2.0-only
+ * @license MIT
  */
 export default class BackInStockNotificationPlugin extends window.PluginBaseClass {
     static options = {

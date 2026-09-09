@@ -3,13 +3,13 @@
 /**
  * Back in Stock Notification Plugin for Shopware 6
  *
- * @license GPL-2.0-only
+ * @license MIT
  */
 
-namespace fKuenzel\BackInStockNotification\Service;
+namespace Fkuenzel\FkBackInStockNotification\Service;
 
-use fKuenzel\BackInStockNotification\Entity\BackInStockNotification\BackInStockNotificationEntity;
-use fKuenzel\BackInStockNotification\Entity\CronState\BackInStockNotificationCronStateEntity;
+use Fkuenzel\FkBackInStockNotification\Entity\BackInStockNotification\BackInStockNotificationEntity;
+use Fkuenzel\FkBackInStockNotification\Entity\CronState\BackInStockNotificationCronStateEntity;
 use Psr\Log\LoggerInterface;
 use Shopware\Core\Content\Mail\Service\AbstractMailService;
 use Shopware\Core\Content\MailTemplate\MailTemplateEntity;

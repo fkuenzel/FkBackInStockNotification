@@ -11,7 +11,7 @@ Kundenkonto, das Shop-Team verwaltet alle Anmeldungen in der Administration.
 
 - Namespace: `fKuenzel\BackInStockNotification`
 - Ziel: Shopware 6.7.x (getestet auf Live-System mit Shopware 6.7.13.1)
-- Lizenz: GPL-2.0-only
+- Lizenz: MIT
 
 ## Voraussetzungen
 

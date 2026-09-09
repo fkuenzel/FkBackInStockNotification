@@ -3,20 +3,20 @@
 /**
  * Back in Stock Notification Plugin for Shopware 6
  *
- * @license GPL-2.0-only
+ * @license MIT
  */
 
-namespace fKuenzel\BackInStockNotification\Tests\Unit\Service;
+namespace Fkuenzel\FkBackInStockNotification\Tests\Unit\Service;
 
-use fKuenzel\BackInStockNotification\Entity\BackInStockNotification\BackInStockNotificationCollection;
-use fKuenzel\BackInStockNotification\Entity\BackInStockNotification\BackInStockNotificationEntity;
-use fKuenzel\BackInStockNotification\Event\BackInStockNotificationRegisteredEvent;
-use fKuenzel\BackInStockNotification\Exception\DuplicateNotificationException;
-use fKuenzel\BackInStockNotification\Exception\InvalidEmailException;
-use fKuenzel\BackInStockNotification\Exception\ProductNotEligibleException;
-use fKuenzel\BackInStockNotification\Exception\RateLimitExceededException;
-use fKuenzel\BackInStockNotification\Service\BackInStockNotificationService;
-use fKuenzel\BackInStockNotification\Service\RateLimitService;
+use Fkuenzel\FkBackInStockNotification\Entity\BackInStockNotification\BackInStockNotificationCollection;
+use Fkuenzel\FkBackInStockNotification\Entity\BackInStockNotification\BackInStockNotificationEntity;
+use Fkuenzel\FkBackInStockNotification\Event\BackInStockNotificationRegisteredEvent;
+use Fkuenzel\FkBackInStockNotification\Exception\DuplicateNotificationException;
+use Fkuenzel\FkBackInStockNotification\Exception\InvalidEmailException;
+use Fkuenzel\FkBackInStockNotification\Exception\ProductNotEligibleException;
+use Fkuenzel\FkBackInStockNotification\Exception\RateLimitExceededException;
+use Fkuenzel\FkBackInStockNotification\Service\BackInStockNotificationService;
+use Fkuenzel\FkBackInStockNotification\Service\RateLimitService;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
@@ -32,7 +32,7 @@ use Shopware\Core\Framework\Uuid\Uuid;
 use Shopware\Core\System\SystemConfig\SystemConfigService;
 use Symfony\Contracts\EventDispatcher\EventDispatcherInterface;
 
-#[CoversClass(\fKuenzel\BackInStockNotification\Service\BackInStockNotificationService::class)]
+#[CoversClass(\Fkuenzel\FkBackInStockNotification\Service\BackInStockNotificationService::class)]
 class BackInStockNotificationServiceTest extends TestCase
 {
     private EntityRepository&MockObject $notificationRepository;

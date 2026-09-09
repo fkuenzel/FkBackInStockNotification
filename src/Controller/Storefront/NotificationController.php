@@ -3,16 +3,16 @@
 /**
  * Back in Stock Notification Plugin for Shopware 6
  *
- * @license GPL-2.0-only
+ * @license MIT
  */
 
-namespace fKuenzel\BackInStockNotification\Controller\Storefront;
+namespace Fkuenzel\FkBackInStockNotification\Controller\Storefront;
 
-use fKuenzel\BackInStockNotification\Exception\DuplicateNotificationException;
-use fKuenzel\BackInStockNotification\Exception\InvalidEmailException;
-use fKuenzel\BackInStockNotification\Exception\ProductNotEligibleException;
-use fKuenzel\BackInStockNotification\Exception\RateLimitExceededException;
-use fKuenzel\BackInStockNotification\Service\BackInStockNotificationService;
+use Fkuenzel\FkBackInStockNotification\Exception\DuplicateNotificationException;
+use Fkuenzel\FkBackInStockNotification\Exception\InvalidEmailException;
+use Fkuenzel\FkBackInStockNotification\Exception\ProductNotEligibleException;
+use Fkuenzel\FkBackInStockNotification\Exception\RateLimitExceededException;
+use Fkuenzel\FkBackInStockNotification\Service\BackInStockNotificationService;
 use Psr\Log\LoggerInterface;
 use Shopware\Core\PlatformRequest;
 use Shopware\Core\System\SalesChannel\SalesChannelContext;

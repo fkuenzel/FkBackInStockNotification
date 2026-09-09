@@ -3,20 +3,20 @@
 /**
  * Back in Stock Notification Plugin for Shopware 6
  *
- * @license GPL-2.0-only
+ * @license MIT
  */
 
-namespace fKuenzel\BackInStockNotification\Controller\Admin;
+namespace Fkuenzel\FkBackInStockNotification\Controller\Admin;
 
-use fKuenzel\BackInStockNotification\ScheduledTask\SendNotificationsTaskHandler;
-use fKuenzel\BackInStockNotification\Service\BackInStockNotificationService;
-use fKuenzel\BackInStockNotification\Service\CronStateService;
+use Fkuenzel\FkBackInStockNotification\ScheduledTask\SendNotificationsTaskHandler;
+use Fkuenzel\FkBackInStockNotification\Service\BackInStockNotificationService;
+use Fkuenzel\FkBackInStockNotification\Service\CronStateService;
 use Psr\Log\LoggerInterface;
 use Shopware\Core\Defaults;
 use Shopware\Core\Framework\Context;
 use Shopware\Core\PlatformRequest;
 use Shopware\Core\Framework\DataAbstractionLayer\EntityRepository;
-use fKuenzel\BackInStockNotification\Entity\BackInStockNotification\BackInStockNotificationCollection;
+use Fkuenzel\FkBackInStockNotification\Entity\BackInStockNotification\BackInStockNotificationCollection;
 use Shopware\Core\Content\Product\ProductCollection;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Aggregation\Bucket\TermsAggregation;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\AggregationResult\Bucket\TermsResult;

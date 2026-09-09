@@ -3,12 +3,12 @@
 /**
  * Back in Stock Notification Plugin for Shopware 6
  *
- * @license GPL-2.0-only
+ * @license MIT
  */
 
-namespace fKuenzel\BackInStockNotification\Event;
+namespace Fkuenzel\FkBackInStockNotification\Event;
 
-use fKuenzel\BackInStockNotification\Entity\BackInStockNotification\BackInStockNotificationEntity;
+use Fkuenzel\FkBackInStockNotification\Entity\BackInStockNotification\BackInStockNotificationEntity;
 use Shopware\Core\Framework\Context;
 use Symfony\Contracts\EventDispatcher\Event;
 

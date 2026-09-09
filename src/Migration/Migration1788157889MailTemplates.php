@@ -3,13 +3,13 @@
 /**
  * Back in Stock Notification Plugin for Shopware 6
  *
- * @license GPL-2.0-only
+ * @license MIT
  */
 
-namespace fKuenzel\BackInStockNotification\Migration;
+namespace Fkuenzel\FkBackInStockNotification\Migration;
 
 use Doctrine\DBAL\Connection;
-use fKuenzel\BackInStockNotification\Service\NotificationMailService;
+use Fkuenzel\FkBackInStockNotification\Service\NotificationMailService;
 use Shopware\Core\Defaults;
 use Shopware\Core\Framework\Migration\MigrationStep;
 use Shopware\Core\Framework\Uuid\Uuid;

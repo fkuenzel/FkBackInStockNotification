@@ -6,12 +6,12 @@
  * AJAX registration form and the "unsubscribe" action shown to already
  * registered customers, giving immediate inline feedback without a page reload.
  *
- * @license GPL-2.0-only
+ * @license MIT
  */
 /**
  * Adds a confirmation dialog before a delete form is submitted in the customer
  * account area (single delete and delete-all). These forms perform a normal
  * full-page POST; this plugin only guards the submit.
  *
- * @license GPL-2.0-only
+ * @license MIT
  */
