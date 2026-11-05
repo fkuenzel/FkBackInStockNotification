@@ -7,6 +7,11 @@ und das Projekt folgt [Semantic Versioning](https://semver.org/lang/de/).
 
 ## [Unveröffentlicht]
 
+## [1.0.2] - 2026-11-05
+
+### Behoben
+- Admin-Menüpunkt (Katalog) verwies nach dem Fk-Rename noch auf den alten Routennamen `sw.back.in.stock.notification.list` statt `sw.fk.back.in.stock.notification.list` und tauchte deshalb nicht in der Navigation auf. Das Modul selbst lud fehlerfrei, der Sidebar-Link konnte die Route nur nicht aufloesen.
+
 ## [1.0.1] - 2026-09-09
 
 ### Geändert

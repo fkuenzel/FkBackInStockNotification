@@ -39,7 +39,7 @@ Module.register('sw-fk-back-in-stock-notification', {
             label: 'sw-fk-back-in-stock-notification.general.mainMenuItemGeneral',
             color: '#57D9A3',
             icon: 'regular-bell',
-            path: 'sw.back.in.stock.notification.list',
+            path: 'sw.fk.back.in.stock.notification.list',
             position: 100,
             parent: 'sw-catalogue',
             privilege: 'fk_back_in_stock_notification.viewer',

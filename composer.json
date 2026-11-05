@@ -1,7 +1,7 @@
 {
     "name": "fkuenzel/fk-back-in-stock-notification-plugin",
     "description": "Back in stock notification plugin for Shopware 6 - notifies customers when sold-out products or variants become available again.",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "type": "shopware-platform-plugin",
     "license": "MIT",
     "keywords": [
