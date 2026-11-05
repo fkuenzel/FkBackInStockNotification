@@ -140,7 +140,6 @@ class NotificationMailService
         $data = [
             'recipients' => [$adminEmail => $adminEmail],
             'senderName' => $this->shopName(null),
-            'salesChannelId' => null,
             'subject' => sprintf('[Back in Stock] Cron failed %d times', $state->getConsecutiveFailures()),
             'contentHtml' => nl2br(htmlspecialchars($plain, \ENT_QUOTES)),
             'contentPlain' => $plain,
@@ -162,11 +161,14 @@ class NotificationMailService
         $data = [
             'recipients' => [$email => $email],
             'senderName' => $mailTemplate->getSenderName() ?: $this->shopName($salesChannelId),
-            'salesChannelId' => $salesChannelId,
             'subject' => (string) $mailTemplate->getSubject(),
             'contentHtml' => (string) $mailTemplate->getContentHtml(),
             'contentPlain' => (string) $mailTemplate->getContentPlain(),
         ];
+
+        if ($salesChannelId !== null) {
+            $data['salesChannelId'] = $salesChannelId;
+        }
 
         $this->mailService->send($data, $context, $templateData);
     }
